@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+	<texts>
+		<text name="CM_title" 													text="Tryb wyzwania" />
+		<text name="CM_leftList_leftTitle" 										text="Farma" />
+		<text name="CM_leftList_rightTitle" 									text="Suma punktów" />
+		<text name="CM_leftList_section_two" 									text="Ustawienia" />
+		<text name="CM_leftList_ruleTitle" 										text="Zasady" />
+		<text name="CM_leftList_adminPointsTitle" 								text="Ustawienia administratora" />
+		<text name="CM_leftList_goalSettings" 									text="Cel" />
+
+		<text name="CM_rightList_leftTitle" 									text="Cel: %d" />
+
+		<text name="CM_changelogList_leftTitle"									text="Gracz"/>
+		<text name="CM_changelogList_middleTitle"								text="Data"/>
+		<text name="CM_changelogList_rightTitle"								text="Punkty"/>
+
+		<text name="CM_menuBtn_admin_login" 									text="Zaloguj" />
+		<text name="CM_menuBtn_admin_logout" 									text="Wyloguj" />
+		<text name="CM_menuBtn_admin_changePassword"							text="Zmień hasło" />
+		<text name="CM_menuBtn_change" 											text="Zmień wartość" />
+		<text name="CM_menuBtn_changeFarmVisibility" 							text="Zmień widoczność farmy" />
+		<text name="CM_menuBtn_showChangelog" 									text="Pokaż dziennik zmian" />
+		<text name="CM_menuBtn_hideChangelog" 									text="Ukryj dziennik zmian" />
+		<text name="CM_menuBtn_addPoints" 										text="Dodaj punkty" />
+
+		<text name="CM_buttonText_markStartVehicle" 							text="Pojazdy startowe" />
+		<text name="CM_buttonText_unmarkStartVehicle" 							text="Brak pojazdów startowych" />
+
+		<text name="CM_dialog_changeTitle" 										text="Zmień wartość" />
+		<text name="CM_dialog_adminTitle" 										text="Logowanie" />
+		<text name="CM_dialog_adminChangePasswordTitle"							text="Obecne hasło: %s" />
+		<text name="CM_dialog_adminWrongPassword"								text="Złe hasło (%s)"/>
+		<text name="CM_dialog_newGoal" 											text="Wprowadź nowy cel."/>
+
+		<text name="CM_dialog_addPoints_title"									text="Dodaj punkty"/>
+		<text name="CM_dialog_addPoints_pointsText"								text="Punkty"/>
+		<text name="CM_dialog_addPoints_reasonText"								text="Powód"/>
+
+		<text name="CM_dialog_addPoints_error_missingReason" 					text="Brak powodu!"/>
+		<text name="CM_dialog_addPoints_error_zeroPoints" 						text="Punkty nie mogą być 0!"/>
+		<text name="CM_dialog_addPoints_error_notANumber" 						text="Punkty muszą być liczbą!"/>
+		<text name="CM_dialog_setGoal_error_invalidGoal" 						text="Cel musi być liczbą!"/>
+
+		<text name="CM_VictoryPoints_leftTitle"									text=""/>
+		<text name="CM_VictoryPoints_middleTitle"								text="Mnożnik"/>
+		<text name="CM_VictoryPoints_rightTitle"								text="Wartość"/>
+
+		<text name="CM_VictoryPoints_general_title"								text=""/>
+		<text name="CM_VictoryPoints_general_money_title"						text="Pieniądze bez kredytu"/>
+		<text name="CM_VictoryPoints_general_area_title"						text="Obszar"/>
+		<text name="CM_VictoryPoints_general_ownedBuildingValue_title"			text="Wartość posiadanych budynków"/>
+		<text name="CM_VictoryPoints_general_ownedVehicleValue_title"			text="Wartość posiadanych pojazdów"/>
+		<text name="CM_VictoryPoints_general_productionValue_title"				text="Wartość produkcji"/>
+
+		<text name="CM_VictoryPoints_general_input_text" 						text=""/>
+		<text name="CM_VictoryPoints_general_money_input_text" 					text="Podaj ile pieniędzy to 1 punkt."/>
+		<text name="CM_VictoryPoints_general_area_input_text" 					text="Podaj ile hektarów to 1 punkt."/>
+		<text name="CM_VictoryPoints_general_ownedBuildingValue_input_text" 	text="Podaj ile posiadanych budynków to 1 punkt."/>
+		<text name="CM_VictoryPoints_general_ownedVehicleValue_input_text" 		text="Podaj ile posiadanych pojazdów to 1 punkt."/>
+		<text name="CM_VictoryPoints_general_productionValue_input_text" 		text="Podaj ile posiadanych produkcji to 1 punkt."/>
+
+		<text name="CM_VictoryPoints_general_input_text_format"					text="Podaj ilość '%s', odpowiadającą 1 punktowi."/>
+		<text name="CM_VictoryPoints_storage_input_text_format"					text="Podaj ilość '%s', odpowiadającą 1 punktowi."/>
+		<text name="CM_VictoryPoints_bales_input_text_format"					text="Podaj ilość '%s', odpowiadającą 1 punktowi."/>
+		<text name="CM_VictoryPoints_pallets_input_text_format"					text="Podaj ilość '%s', odpowiadającą 1 punktowi."/>
+		<text name="CM_VictoryPoints_animals_input_text_format"					text="Podaj ilość '%s', odpowiadającą 1 punktowi."/>
+
+		<text name="CM_VictoryPoints_general_totalStorage_title"				text="Razem magazynów"/>
+		<text name="CM_VictoryPoints_general_totalBales_title"					text="Razem bel"/>
+		<text name="CM_VictoryPoints_general_totalPallets_title"				text="Razem palet"/>
+		<text name="CM_VictoryPoints_general_totalAnimals_title" 				text="Razem zwierząt"/>
+
+		<text name="CM_VictoryPoints_storage_title"								text="Magazyn"/>
+		<text name="CM_VictoryPoints_bales_title"								text="Bele"/>
+		<text name="CM_VictoryPoints_pallets_title"								text="Palety"/>
+		<text name="CM_VictoryPoints_animals_title" 							text="Zwierzęta"/>
+
+		<text name="CM_Rules_leftTitle"											text=""/>
+		<text name="CM_Rules_middleTitle"										text=""/>
+		<text name="CM_Rules_rightTitle"										text="Wartość"/>
+
+		<text name="CM_Rules_general_title"										text=""/>
+		<text name="CM_Rules_general_maxHelpers_title"							text="Maksymalna ilość pomocników: "/>
+		<text name="CM_Rules_general_maxHelpers_deactivated"					text="Wyłączono"/>
+		<text name="CM_Rules_general_maxMissions_title"							text="Maksymalna ilość misji: "/>
+		<text name="CM_Rules_general_maxMissions_deactivated"					text="Wyłączono"/>
+		<text name="CM_Rules_general_leaseVehicle_title"						text="Wynajem pojazdów:"/>
+		<text name="CM_Rules_general_leaseVehicle_deactivated"					text="Wyłączono"/>
+		<text name="CM_Rules_general_leaseVehicle_shopOnly"						text="Tylko zakup"/>
+		<text name="CM_Rules_general_leaseVehicle_allowed"						text="Dozwolone"/>
+		<text name="CM_Rules_general_maxFillLevel_title"						text="Limit poziomu wypełnienia: "/>
+		<text name="CM_Rules_general_maxFillLevel_deactivated"					text="Wyłączono"/>			
+		<text name="CM_Rules_general_creditLimit_title"							text="Limit kredytu:"/>
+		<text name="CM_Rules_general_creditLimit_deactivated"					text="Wyłączono"/>
+		<text name="CM_Rules_general_maxNumberOfAnimals_title" 					text="Maksymalna ilość zwierząt:"/>
+		<text name="CM_Rules_general_maxNumberOfAnimals_deactivated"			text="Wyłączono"/>
+		<text name="CM_Rules_general_maxNumberOfAnimals_noLimit"				text="Brak limitu"/>
+
+		<text name="CM_Rules_visibleFarms_title"								text="Farmy:"/>
+		<text name="CM_Rules_visibleFarms_visible"								text="Widoczne"/>
+		<text name="CM_Rules_visibleFarms_invisible"							text="Niewidoczne"/>
+
+		<text name="CM_Rules_missions_title"									text="Misje"/>
+		<text name="CM_Rules_missions_activated"								text="Włączono"/>
+		<text name="CM_Rules_missions_deactivated"								text="Wyłączono"/>
+
+		<text name="CM_Rules_animalHusbandryLimits_title"						text="Limity zagród dla zwierząt"/>
+		<text name="CM_Rules_animalHusbandryLimits_noLimit"						text="Brak limitu"/>
+		<text name="CM_Rules_animalHusbandryLimits_deactivated"					text="Wyłączono"/>
+
+		<text name="unit_pointsShort" 											text="pkt."/>
+		<text name="unit_piecesShort"											text="szt."/>
+
+		<text name="animalName_plural_cow"										text="Krowy"/>
+		<text name="animalName_plural_pig"										text="Świnie"/>
+		<text name="animalName_plural_horse"									text="Konie"/>
+		<text name="animalName_plural_chicken"									text="Kury"/>
+		<text name="animalName_plural_sheep"									text="Owce"/>
+	</texts>
+</l10n>

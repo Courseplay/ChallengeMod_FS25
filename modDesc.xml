@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="98">
+    <version>1.2.0.3</version>
+	<author>Courseplay.devTeam, tn4799</author>
+	<title>
+		<en>Challenge Mode</en>
+		<de>Wettkampfmodus</de>
+	</title>
+
+	<description>
+        <en><![CDATA[
+Challenge Time!
+This mod provides everything you need to create your own challenge.
+Custom Ingame UI with extra password to configure the rule set and values to your needs.
+The password can only be changed by the server admin.
+
+The following Values can be set to get a point:
+- How much Money (without credits).
+- How many Liters of each fruit.
+- The amount of area you own (HA).
+- Animals when grown up.
+
+Additional Rules:
+- How many points are needed to win
+- A storage limit. Anything above that value won't be count.
+- Helper limit 0-6.
+- Animal Husbandry 0-6.
+- Rent Vehicles for mission and shop/ only in the shop, or turn it off completly.
+- Turn off specific mission types.
+- Set a mission limit per farm from 0-8 missions active at the same time.
+- Loan on/off/limited to a specified value.
+- Mark vehicles and tools as starter to not count them into the points.
+- Add or reduce points of a farm with a reason (e.g. won a challenge, punishment) with a complete log! The reason can be displayed by double clicking the entry.
+- Hide a farm that doesn't participate in the challenge (e.g. Contractor). That farm will get have the limits set to max, is allowed to hire helpers and rent vehicles.
+
+What is planed for the future:
+- Integration of the Limited Daily Income Mod into the rule set to configure those limits within the same UI
+
+We suggest you for a 24/7 Server to use the Mod limited daily income, for more fairness.
+
+For more information, help, and report issues please visit <a href="https://github.com/Courseplay/ChallengeMode_FS22">github</a>.
+
+Changelog
+V1.0.0.1
+ - fixed farm visiblity bug
+
+V1.1.0.0
+ - added an option to set an amount of ingame months for how long the challange lasts. Once the end of the last month is reached no more new points will be counted. If you set the Months to 0 you turn off this feature
+
+V1.1.0.1
+ - fixed mp synchronization of start vehicles
+
+V1.2.0.0
+ - Added an option for decreasing points if farm has a loan
+ - Added an option to hide the other farms points, or pay to spy on the points as long as you are inside the menu
+
+V1.2.0.1
+ - Fixed a bug with the synchronization of additional points
+
+V1.2.0.2
+ - Added support for object storage (only giants version)
+
+V1.2.0.3
+ - Fixed a bug where bales lose on the map gave double points
+]]>
+</en>
+		<de><![CDATA[
+Zeit für einen Wettkampf!
+Diese Mod bietet euch alles um euren eigenen Wettkampf auszutragen.
+Ein eigenes Menü mit einem eigenen Passwort um die Regeln und Werte auf die eigenen Bedürfnisse anzupassen.
+Das Passwort kann nur durch einen Serveradministator geändert werden.
+
+Diese Punkte können angepasst werden um Punkte zu bekommen:
+- Geld auf dem Konto (ohne Kredit)
+- Wie viel Liter pro Frucht (in eurem Besitz).
+- Die gesamte Fläche, die ihr besitzt (HA)
+- Ausgewachsene Tiere
+
+Weitere Regeln:
+- Wie viele Punkte zum Sieg nötig sind.
+- Ein Limit wie viel Frucht gezählt werden soll (alles was darüber hinaus ist, wird nicht gezählt).
+- Helferlimit 0-6.
+- Tierstalllimit pro Farm 0-6.
+- Fahrzeuge mieten für Missionen und im Shop / nur im Shop, oder komplett deaktiviert.
+- Bestimmte Missionstypen deaktivieren.
+- Ein Missionslimit pro Farm von 0-8 aktiven Missionen zur selben Zeit.
+- Kredit an/aus/limitiert auf einen bestimmten Wert.
+- Fahrzeuge und Geräte als Startfuhrpark markieren, so dass diese nicht zu den Punkten zählen.
+- Punkte zu einer Farm hinzufügen oder abziehen (z.B. eine Challenge gewonnen oder eine Bestrafung), mit komplettem Verlauf! Der Grund kann mit einem Doppelklick auf den Eintrag angezeigt werden.
+- Verstecke eine Farm, die nicht an dem Wettkampf teilnimmt (z.B. Lohnunternehmen). Diese Farm hat die Limits aufs Maximum gesetzt und darf Helfer einstellen, sowie Fahrzeuge mieten.
+
+Was ist für die Zukunft geplant:
+- Die Einstellungsoptionen der Limits des Mod Tägliche Einkommensbegrenzung in das UI integrieren.
+
+Wir empfehlen euch für einen 24/7 Server für mehr Fairness die Mod Tägliche Einkommensbegrenzung zu nutzen.
+
+Für mehr Informationen, Hilfe und Fehlermeldungen, schaut bitte auf <a href="https://github.com/Courseplay/ChallengeMode_FS22">Github</a> vorbei.
+
+Änderungsverlauf
+V1.0.0.1
+ - Fehler mit der Sichtbarkeit von Farmen behoben
+
+V1.1.0.0
+ - Es kann nun eine Dauer des Wettkampfes in Spiel-Monaten angegeben werden. Wurde das Ende des letzten Monats erreicht, werden keine neuen Punkte mehr gezählt. Wenn man die Dauer auf 0 Monate setzt dann ist das Feature deaktiviert.
+
+V1.1.0.1
+ - Fehler mit der Synchronisierung der Startfahrzeuge behoben
+
+V1.2.0.0
+ - Option hinzugefügt, dass ein Hof Punkte verliert, sollte der Hof einen Kredit haben
+ - Option hinzugefügt um die Punktezusammensetzung der anderen Farmen zu verstecken, oder bazahle um die Punkte zu sehen solange du im Menü bist
+
+V1.2.0.1
+ - Fehler bei der Synchronisation der zusätzlichen Punkte behoben
+
+V1.2.0.2
+ - Unterstützung für Objektlager hinzugefügt (nur Giants-Version)
+
+V1.2.0.3
+ - Fehler behoben, der dazu führte, dass Ballen auf der Karte doppelte Punkte brachten
+]]></de>
+
+    </description>
+
+	<iconFilename>Icon_ChallengeMode.dds</iconFilename>
+    <multiplayer supported="true" />
+
+	<inputBinding>
+		<actionBinding action="CHALLENGE_OPEN_INGAME_MENU">
+			<binding device="KB_MOUSE_DEFAULT" input="KEY_lalt KEY_c" />
+		</actionBinding>
+    </inputBinding>
+
+	<actions>
+		<action name="CHALLENGE_OPEN_INGAME_MENU"/>		
+	</actions>
+
+	<extraSourceFiles>
+		<sourceFile filename="src/CpObject.lua"/>
+		<sourceFile filename="src/Logger.lua"/>
+		<sourceFile filename="src/ChUtil.lua"/>
+		<sourceFile filename="src/ChallengeMod.lua"/>
+
+		<sourceFile filename="src/data/points/PointType.lua"/>
+		<sourceFile filename="src/data/points/Point.lua"/>
+		<sourceFile filename="src/data/points/PointTypManager.lua"/>
+		<sourceFile filename="src/data/points/PointManager.lua"/>
+
+		<sourceFile filename="src/data/ChallengeFarm.lua"/>
+		<sourceFile filename="src/data/ChallengeFarmManager.lua"/>
+
+		<sourceFile filename="src/gui/elements/BinaryOptionElement.lua"/>
+		<sourceFile filename="src/gui/elements/OptionToggleElement.lua"/>
+		<sourceFile filename="src/gui/pages/FarmOverviewFrame.lua"/>
+		<sourceFile filename="src/gui/pages/SettingsFrame.lua"/>
+		<sourceFile filename="src/gui/ChallengeMenu.lua"/>
+	</extraSourceFiles>
+
+	<l10n filenamePrefix="translations/translation" />
+</modDesc>

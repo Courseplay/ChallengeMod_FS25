@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+	<texts>
+		<text name="CM_title" 													text="Challenge mode" />
+		<text name="CM_title_duration"											text="Mois %s de %s"/>
+		<text name="CM_leftList_leftTitle" 										text="Ferme" />
+		<text name="CM_leftList_rightTitle" 									text="Points totaux" />
+		<text name="CM_leftList_section_two" 									text="Paramètres" />
+		<text name="CM_leftList_ruleTitle" 										text="Règles" />
+		<text name="CM_leftList_adminPointsTitle" 								text="Barème des points (admin)" />
+		<text name="CM_leftList_goalSettings" 									text="Objectif" />
+
+		<text name="CM_rightList_leftTitle" 									text="Objectif: %d" />
+
+		<text name="CM_changelogList_leftTitle"									text="Joueur"/>
+		<text name="CM_changelogList_middleTitle"								text="Date"/>
+		<text name="CM_changelogList_rightTitle"								text="Points"/>
+
+		<text name="CM_menuBtn_admin_login" 									text="Connexion" />
+		<text name="CM_menuBtn_admin_logout" 									text="Déconnexion" />
+		<text name="CM_menuBtn_admin_changePassword"							text="Changer le mot de passe" />
+		<text name="CM_menuBtn_change" 											text="Changer la valeur" />
+		<text name="CM_menuBtn_changeFarmVisibility" 							text="Modifie la visibilité de la ferme" />
+		<text name="CM_menuBtn_showChangelog" 									text="Afficher le journal" />
+		<text name="CM_menuBtn_hideChangelog" 									text="Masquer le journal" />
+		<text name="CM_menuBtn_addPoints" 										text="Ajouter des points" />
+
+		<text name="CM_buttonText_markStartVehicle" 							text="Avec des véhicules de démarrage" />
+		<text name="CM_buttonText_unmarkStartVehicle" 							text="Sans véhicules de démarrage" />
+
+		<text name="CM_dialog_changeTitle" 										text="Changer la valeur" />
+		<text name="CM_dialog_adminTitle" 										text="Connexion" />
+		<text name="CM_dialog_adminChangePasswordTitle"							text="Mot de passe actuel: %s" />
+		<text name="CM_dialog_adminWrongPassword"								text="Mauvais mot de passe (%s)"/>
+		<text name="CM_dialog_newGoal" 											text="Saisissez le nouvel objectif."/>
+		<text name="CM_dialog_dataDeleted" 										text="Souhaitez vous vraiment supprimer toutes les données générées pendant la durée du challenge ?"/>
+		<text name="CM_dialog_newDuration"										text="Saisisez la durée en mois.
+Une durée de 0 mois désactivera la limite de temps.
+Une durée de -1 mois réinitialisera toutes les données générées pendant la durée du challenge."
+		/>
+		<text name="CM_dialog_challengeOver"									text="Le challenge est terminé."/>
+		<text name="CM_dialog_spyOnOtherTeams" 									text="Souhaitez-vous payer %s pour voir les points de la ferme %s?"/>																																															  
+
+		<text name="CM_dialog_addPoints_title"									text="Ajouter des points"/>
+		<text name="CM_dialog_addPoints_pointsText"								text="Points"/>
+		<text name="CM_dialog_addPoints_reasonText"								text="Explications"/>
+
+		<text name="CM_dialog_addPoints_error_missingReason" 					text="L'explication est manquante !"/>
+		<text name="CM_dialog_addPoints_error_zeroPoints" 						text="Les points ne peuvent pas être 0 !"/>
+		<text name="CM_dialog_addPoints_error_notANumber" 						text="Les points doivent être des chiffres !"/>
+		<text name="CM_dialog_setGoal_error_invalidGoal" 						text="L'objectif doit être un chiffre !"/>
+		<text name="CM_dialog_setDuration_error_invalidDuration" 				text="La durée doit être une valeur positive !"/>
+
+		<text name="CM_VictoryPoints_leftTitle"									text=""/>
+		<text name="CM_VictoryPoints_middleTitle"								text="Facteur"/>
+		<text name="CM_VictoryPoints_rightTitle"								text="Valeur"/>
+
+		<text name="CM_VictoryPoints_general_title"								text=""/>
+		<text name="CM_VictoryPoints_general_money_title"						text="Argent sans crédit"/>
+		<text name="CM_VictoryPoints_general_loan_title"						text="Pénalités pour crédit"/>
+		<text name="CM_VictoryPoints_general_area_title"						text="Surface"/>
+		<text name="CM_VictoryPoints_general_ownedBuildingValue_title"			text="Valeur de vente des bâtiments"/>
+		<text name="CM_VictoryPoints_general_ownedVehicleValue_title"			text="Valeur de vente des véhicules"/>
+		<text name="CM_VictoryPoints_general_productionValue_title"				text="Valeur des productions"/>
+
+		<text name="CM_VictoryPoints_general_input_text" 						text=""/>
+		<text name="CM_VictoryPoints_general_money_input_text" 					text="Saisissez combien d'argent génère un point."/>
+		<text name="CM_VictoryPoints_general_loan_input_text" 					text="Saisissez combien d'argent emprunté génère un point de pénalité."/>
+		<text name="CM_VictoryPoints_general_area_input_text" 					text="Saisissez combien d'hectares de surface génère un point."/>
+		<text name="CM_VictoryPoints_general_ownedBuildingValue_input_text" 	text="Saisissez combien d'agent obtenu suite à une vente de bâtiment génère un point."/>
+		<text name="CM_VictoryPoints_general_ownedVehicleValue_input_text" 		text="Saisissez combien d'agent obtenu suite à une vente de véhicule génère un point."/>
+		<text name="CM_VictoryPoints_general_productionValue_input_text" 		text="Saisissez combien d'agent obtenu suite à une production génère un point."/>
+
+		<text name="CM_VictoryPoints_general_input_text_format"					text="Combien de %s génère un point."/>
+		<text name="CM_VictoryPoints_storage_input_text_format"					text="Combien de %s génère un point."/>
+		<text name="CM_VictoryPoints_bales_input_text_format"					text="Combien de %s génère un point."/>
+		<text name="CM_VictoryPoints_pallets_input_text_format"					text="Combien de %s génère un point."/>
+		<text name="CM_VictoryPoints_animals_input_text_format"					text="Combien de %s génère un point."/>
+
+		<text name="CM_VictoryPoints_general_totalStorage_title"				text="Total du stockage"/>
+		<text name="CM_VictoryPoints_general_totalBales_title"					text="Total des balles"/>
+		<text name="CM_VictoryPoints_general_totalPallets_title"				text="Total des palettes"/>
+		<text name="CM_VictoryPoints_general_totalAnimals_title" 				text="Total des animaux"/>
+
+		<text name="CM_VictoryPoints_storage_title"								text="Stockage"/>
+		<text name="CM_VictoryPoints_bales_title"								text="Stockage des balles"/>
+		<text name="CM_VictoryPoints_pallets_title"								text="Stockage des palettes"/>
+		<text name="CM_VictoryPoints_animals_title" 							text="Animaux"/>
+
+		<text name="CM_Rules_leftTitle"											text=""/>
+		<text name="CM_Rules_middleTitle"										text=""/>
+		<text name="CM_Rules_rightTitle"										text="Valeur"/>
+
+		<text name="CM_Rules_general_title"										text=""/>
+		<text name="CM_Rules_general_maxHelpers_title"							text="Maximum d'ouvriers: "/>
+		<text name="CM_Rules_general_maxHelpers_deactivated"					text="Désactivé"/>
+		<text name="CM_Rules_general_maxMissions_title"							text="Maximum de contrats: "/>
+		<text name="CM_Rules_general_maxMissions_deactivated"					text="Désactivé"/>
+		<text name="CM_Rules_general_leaseVehicle_title"						text="Location de véhicules:"/>
+		<text name="CM_Rules_general_leaseVehicle_deactivated"					text="Désactivée"/>
+		<text name="CM_Rules_general_leaseVehicle_shopOnly"						text="Uniquement au magasin"/>
+		<text name="CM_Rules_general_leaseVehicle_allowed"						text="Autorisée"/>
+		<text name="CM_Rules_general_maxFillLevel_title"						text="Quantité maximum comptabilisée en litre par culture: "/>
+		<text name="CM_Rules_general_maxFillLevel_deactivated"					text="Désactivée"/>
+		<text name="CM_Rules_general_creditLimit_title"							text="Limite de crédit: "/>
+		<text name="CM_Rules_general_creditLimit_deactivated"					text="Désactivée"/>
+		<text name="CM_Rules_general_maxNumberOfAnimals_title" 					text="Quantité maximum d'animaux: "/>
+		<text name="CM_Rules_general_maxNumberOfAnimals_deactivated"			text="Désactivée"/>
+		<text name="CM_Rules_general_maxNumberOfAnimals_noLimit"				text="Pas de limite"/>
+		<text name="CM_Rules_general_spyOnOtherTeams_deactivated"				text="Points invisibles"/>
+		<text name="CM_Rules_general_spyOnOtherTeams_payToSpy"					text="Payer pour espionner"/>
+		<text name="CM_Rules_general_spyOnOtherTeams_showAll"					text="Points visibles"/>
+		<text name="CM_Rules_general_spyingCost_title" 							text="Coûts d'espionnage"/>																					  
+
+		<text name="CM_Rules_visibleFarms_title"								text="Fermes:"/>
+		<text name="CM_Rules_visibleFarms_visible"								text="Visible"/>
+		<text name="CM_Rules_visibleFarms_invisible"							text="Invisible"/>
+
+		<text name="CM_Rules_missions_title"									text="Contrats"/>
+		<text name="CM_Rules_missions_activated"								text="Activés"/>
+		<text name="CM_Rules_missions_deactivated"								text="Désactivés"/>
+
+		<text name="CM_Rules_animalHusbandryLimits_title"						text="Limite de stabulations"/>
+		<text name="CM_Rules_animalHusbandryLimits_noLimit"						text="Pas de limite"/>
+		<text name="CM_Rules_animalHusbandryLimits_deactivated"					text="Désactivée"/>
+
+		<text name="unit_pointsShort" 											text="Pt"/>
+		<text name="unit_piecesShort"											text="Pc."/>
+
+		<text name="animalName_plural_cow"										text="Vaches"/>
+		<text name="animalName_plural_pig"										text="Cochons"/>
+		<text name="animalName_plural_horse"									text="Chevaux"/>
+		<text name="animalName_plural_chicken"									text="Poules"/>
+		<text name="animalName_plural_sheep"									text="Moutons"/>
+	</texts>
+</l10n>

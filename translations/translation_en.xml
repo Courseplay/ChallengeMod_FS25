@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+	<texts>
+		<text name="CM_title" 													text="Challenge mode" />
+		<text name="CM_title_duration"											text="Month %s of %s"/>
+		<text name="CM_leftList_leftTitle" 										text="Farm" />
+		<text name="CM_leftList_rightTitle" 									text="Total points" />
+		<text name="CM_leftList_section_two" 									text="Settings" />
+		<text name="CM_leftList_ruleTitle" 										text="Rules" />
+		<text name="CM_leftList_adminPointsTitle" 								text="Admin Point Settings" />
+		<text name="CM_leftList_goalSettings" 									text="Goal" />
+
+		<text name="CM_rightList_leftTitle" 									text="Goal: %d" />
+
+		<text name="CM_changelogList_leftTitle"									text="User Name"/>
+		<text name="CM_changelogList_middleTitle"								text="Date"/>
+		<text name="CM_changelogList_rightTitle"								text="Points"/>
+
+		<text name="CM_menuBtn_admin_login" 									text="Login" />
+		<text name="CM_menuBtn_admin_logout" 									text="Logout" />
+		<text name="CM_menuBtn_admin_changePassword"							text="Change password" />
+		<text name="CM_menuBtn_change" 											text="Change value" />
+		<text name="CM_menuBtn_changeFarmVisibility" 							text="Changes farm visibility" />
+		<text name="CM_menuBtn_showChangelog" 									text="Show Changelog" />
+		<text name="CM_menuBtn_hideChangelog" 									text="Hide Changelog" />
+		<text name="CM_menuBtn_addPoints" 										text="Add Points" />
+
+		<text name="CM_buttonText_markStartVehicle" 							text="Starting vehicle" />
+		<text name="CM_buttonText_unmarkStartVehicle" 							text="No starting vehicle" />
+
+		<text name="CM_dialog_changeTitle" 										text="Change value" />
+		<text name="CM_dialog_adminTitle" 										text="Login" />
+		<text name="CM_dialog_adminChangePasswordTitle"							text="Current password: %s" />
+		<text name="CM_dialog_adminWrongPassword"								text="Wrong password (%s)"/>
+		<text name="CM_dialog_newGoal" 											text="Enter the new goal."/>
+		<text name="CM_dialog_dataDeleted" 										text="Do you really want do delete all data connected to the challenge duration?"/>
+		<text name="CM_dialog_newDuration"										text="Enter the duration in months.
+A duration of 0 months will deactivate the time limit.
+A duration of -1 will reset all data connected to the challenge duration."
+		/>
+		<text name="CM_dialog_challengeOver"									text="The challenge is over."/>
+		<text name="CM_dialog_spyOnOtherTeams" 									text="Do you want to pay %s to see the values of farm %s?"/>
+
+		<text name="CM_dialog_addPoints_title"									text="Add Points"/>
+		<text name="CM_dialog_addPoints_pointsText"								text="Points"/>
+		<text name="CM_dialog_addPoints_reasonText"								text="Reason"/>
+
+		<text name="CM_dialog_addPoints_error_missingReason" 					text="Reason is missing!"/>
+		<text name="CM_dialog_addPoints_error_zeroPoints" 						text="Points cannot be 0!"/>
+		<text name="CM_dialog_addPoints_error_notANumber" 						text="Points have to be a number!"/>
+		<text name="CM_dialog_setGoal_error_invalidGoal" 						text="Goal have to be a number!"/>
+		<text name="CM_dialog_setDuration_error_invalidDuration" 				text="Duration has to be a positive number!"/>
+
+		<text name="CM_VictoryPoints_leftTitle"									text=""/>
+		<text name="CM_VictoryPoints_middleTitle"								text="Factor"/>
+		<text name="CM_VictoryPoints_rightTitle"								text="Value"/>
+
+		<text name="CM_VictoryPoints_general_title"								text=""/>
+		<text name="CM_VictoryPoints_general_money_title"						text="Money without credit"/>
+		<text name="CM_VictoryPoints_general_loan_title"						text="Loan punishment"/>
+		<text name="CM_VictoryPoints_general_area_title"						text="Area"/>
+		<text name="CM_VictoryPoints_general_ownedBuildingValue_title"			text="Building sell value"/>
+		<text name="CM_VictoryPoints_general_ownedVehicleValue_title"			text="Vehicle sell value"/>
+		<text name="CM_VictoryPoints_general_productionValue_title"				text="Production value"/>
+
+		<text name="CM_VictoryPoints_general_input_text" 						text=""/>
+		<text name="CM_VictoryPoints_general_money_input_text" 					text="Please enter how much money equals one point."/>
+		<text name="CM_VictoryPoints_general_loan_input_text" 					text="Please enter how much loan equals one punishment point."/>
+		<text name="CM_VictoryPoints_general_area_input_text" 					text="Please enter how much hectares of land equals one point."/>
+		<text name="CM_VictoryPoints_general_ownedBuildingValue_input_text" 	text="Please enter how much building sell value equals one point."/>
+		<text name="CM_VictoryPoints_general_ownedVehicleValue_input_text" 		text="Please enter how much vehicle sell value equals one point."/>
+		<text name="CM_VictoryPoints_general_productionValue_input_text" 		text="Please enter how much production value equals one point."/>
+
+		<text name="CM_VictoryPoints_general_input_text_format"					text="Please enter how much %s equals one point."/>
+		<text name="CM_VictoryPoints_storage_input_text_format"					text="Please enter how much %s equals one point."/>
+		<text name="CM_VictoryPoints_bales_input_text_format"					text="Please enter how much %s equals one point."/>
+		<text name="CM_VictoryPoints_pallets_input_text_format"					text="Please enter how much %s equals one point."/>
+		<text name="CM_VictoryPoints_animals_input_text_format"					text="Please enter how many %s equal one point."/>
+
+		<text name="CM_VictoryPoints_general_totalStorage_title"				text="Total storage"/>
+		<text name="CM_VictoryPoints_general_totalBales_title"					text="Total bales"/>
+		<text name="CM_VictoryPoints_general_totalPallets_title"				text="Total pallets"/>
+		<text name="CM_VictoryPoints_general_totalAnimals_title" 				text="Total Animals"/>
+
+		<text name="CM_VictoryPoints_storage_title"								text="Storage"/>
+		<text name="CM_VictoryPoints_bales_title"								text="Bale storage"/>
+		<text name="CM_VictoryPoints_pallets_title"								text="Pallet storage"/>
+		<text name="CM_VictoryPoints_animals_title" 							text="Animals"/>
+
+		<text name="CM_Rules_leftTitle"											text=""/>
+		<text name="CM_Rules_middleTitle"										text=""/>
+		<text name="CM_Rules_rightTitle"										text="Value"/>
+
+		<text name="CM_Rules_general_title"										text=""/>
+		<text name="CM_Rules_general_maxHelpers_title"							text="Max helpers: "/>
+		<text name="CM_Rules_general_maxHelpers_deactivated"					text="Deactivated"/>
+		<text name="CM_Rules_general_maxMissions_title"							text="Max missions: "/>
+		<text name="CM_Rules_general_maxMissions_deactivated"					text="Deactivated"/>
+		<text name="CM_Rules_general_leaseVehicle_title"						text="Lease vehicles:"/>
+		<text name="CM_Rules_general_leaseVehicle_deactivated"					text="Deactivated"/>
+		<text name="CM_Rules_general_leaseVehicle_shopOnly"						text="Shop only"/>
+		<text name="CM_Rules_general_leaseVehicle_allowed"						text="Allowed"/>
+		<text name="CM_Rules_general_maxFillLevel_title"						text="Max amount of counting liters per fruit: "/>
+		<text name="CM_Rules_general_maxFillLevel_deactivated"					text="Deactivated"/>
+		<text name="CM_Rules_general_creditLimit_title"							text="Credit limit: "/>
+		<text name="CM_Rules_general_creditLimit_deactivated"					text="Deactivated"/>
+		<text name="CM_Rules_general_maxNumberOfAnimals_title" 					text="Max amount of counting Animals: "/>
+		<text name="CM_Rules_general_maxNumberOfAnimals_deactivated"			text="Deactivated"/>
+		<text name="CM_Rules_general_maxNumberOfAnimals_noLimit"				text="No Limit"/>
+		<text name="CM_Rules_general_spyOnOtherTeams_deactivated"				text="No values shown"/>
+		<text name="CM_Rules_general_spyOnOtherTeams_payToSpy"					text="Pay to spy"/>
+		<text name="CM_Rules_general_spyOnOtherTeams_showAll"					text="All values shown"/>
+		<text name="CM_Rules_general_spyingCost_title" 							text="Spying Cost"/>
+
+		<text name="CM_Rules_visibleFarms_title"								text="Farms:"/>
+		<text name="CM_Rules_visibleFarms_visible"								text="Visible"/>
+		<text name="CM_Rules_visibleFarms_invisible"							text="Invisible"/>
+
+		<text name="CM_Rules_missions_title"									text="Missions"/>
+		<text name="CM_Rules_missions_activated"								text="Activated"/>
+		<text name="CM_Rules_missions_deactivated"								text="Deactivated"/>
+
+		<text name="CM_Rules_animalHusbandryLimits_title"						text="Animal husbandry limits"/>
+		<text name="CM_Rules_animalHusbandryLimits_noLimit"						text="No limit"/>
+		<text name="CM_Rules_animalHusbandryLimits_deactivated"					text="Deactivated"/>
+
+		<text name="unit_pointsShort" 											text="Pt"/>
+		<text name="unit_piecesShort"											text="Pc."/>
+
+		<text name="animalName_plural_cow"										text="Cows"/>
+		<text name="animalName_plural_pig"										text="Pigs"/>
+		<text name="animalName_plural_horse"									text="Horses"/>
+		<text name="animalName_plural_chicken"									text="Chickens"/>
+		<text name="animalName_plural_sheep"									text="Sheeps"/>
+	</texts>
+</l10n>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChallengeConfig>
+    <Points>
+        <Category name="general">
+			<Type name="area"/>
+			<Type name="ownedBuildingValue"/>
+			<Type name="ownedVehicleValue"/>
+		</Category>
+        <Category name="money">
+            <Type name="money"/>
+            <Type name="loan"/>
+        </Category>
+		<Category name="storage">
+			<Type composeFunc="composeStorage"/>
+		</Category>
+		<Category name="animals">
+            <Type composeFunc="composeAnimals"/>
+		</Category>
+    </Points>
+</ChallengeConfig>

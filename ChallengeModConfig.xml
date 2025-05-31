@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChallengeMod defaultPassword="0000">
+	<VictoryPoints prefix="CM_VictoryPoints" goal="1000000">
+		<Category name="general">
+			<Element genericFunc="addMoneyFactor" unitTextFunc="MONEY_TEXT" name="money" default="1" />
+			<Element genericFunc="addLoanFactor" unitTextFunc="MONEY_TEXT" name="loan" default="1" />
+			<Element genericFunc="addAreaFactor" unitTextFunc="AREA_TEXT" name="area" default="1" />
+			<Element genericFunc="addBuildingsFactor" unitTextFunc="MONEY_TEXT" name="ownedBuildingValue" default="1" />
+			<Element genericFunc="addVehiclesFactor" unitTextFunc="MONEY_TEXT" name="ownedVehicleValue" default="1" />
+			<!--TODO	<Element genericFunc="addProductionsFactor" unitTextFunc = "VOLUME_TEXT" name="productionValue" default="1"/> -->
+
+			<Element dependency="storage" genericFunc="addDependentPoint" unitTextFunc="VOLUME_TEXT" name="totalStorage" default="1" />
+			<Element dependency="bales" genericFunc="addDependentPoint" unitTextFunc="VOLUME_TEXT" name="totalBales" default="1" />
+			<!--Element dependency="pallets" genericFunc="addDependentPoint" unitTextFunc="VOLUME_TEXT" name="totalPallets" default="1" /-->
+			<Element dependency="animals" genericFunc="addDependentPoint" unitTextFunc="ANIMAL_TEXT" name="totalAnimals" default="1" />
+		</Category>
+		<Category name="storage">
+			<Element genericFunc="addFillTypeFactors" unitTextFunc="VOLUME_TEXT" default="0" />
+		</Category>
+		<Category name="bales">
+			<Element genericFunc="addBaleFactors" unitTextFunc="VOLUME_TEXT" default="0" />
+		</Category>
+		<!--Category name="pallets">
+			<Element genericFunc="addPalletFactors" unitTextFunc="VOLUME_TEXT" default="1" />
+		</Category-->
+		<Category name="animals">
+			<Element genericFunc="addAnimalFactors" unitTextFunc="ANIMAL_TEXT" default="0"/>
+		</Category>
+
+		<IgnoredFillTypes>
+			<IgnoredFillType>AIR</IgnoredFillType>
+			<IgnoredFillType>PROTEIN</IgnoredFillType>
+			<IgnoredFillType>DEF</IgnoredFillType>
+			<IgnoredFillType>DEF_SHORT</IgnoredFillType>
+			<IgnoredFillType>DIESEL</IgnoredFillType>
+			<IgnoredFillType>ELECTRICCHARGE</IgnoredFillType>
+			<IgnoredFillType>FORAGE_MIXING</IgnoredFillType>
+			<IgnoredFillType>METHANE</IgnoredFillType>
+			<IgnoredFillType>PIGFOODBASE</IgnoredFillType>
+			<IgnoredFillType>PIGFOODEARTH</IgnoredFillType>
+			<IgnoredFillType>PIGFOODGRAIN</IgnoredFillType>
+			<IgnoredFillType>PIGFOODPROTEIN</IgnoredFillType>
+			<IgnoredFillType>ROADSALT</IgnoredFillType>
+			<IgnoredFillType>SILAGEADDITIVE</IgnoredFillType>
+			<IgnoredFillType>SNOW</IgnoredFillType>
+			<IgnoredFillType>TARP</IgnoredFillType>
+			<IgnoredFillType>TREESAPLINGS</IgnoredFillType>
+			<IgnoredFillType>WEED</IgnoredFillType>
+			<IgnoredFillType>COW_SWISS_BROWN</IgnoredFillType>
+			<IgnoredFillType>COW_HOLSTEIN</IgnoredFillType>
+			<IgnoredFillType>COW_ANGUS</IgnoredFillType>
+			<IgnoredFillType>COW_LIMOUSIN</IgnoredFillType>
+			<IgnoredFillType>PIG_LANDRACE</IgnoredFillType>
+			<IgnoredFillType>PIG_BLACK_PIED</IgnoredFillType>
+			<IgnoredFillType>PIG_BERKSHIRE</IgnoredFillType>
+			<IgnoredFillType>SHEEP_LANDRACE</IgnoredFillType>
+			<IgnoredFillType>SHEEP_STEINSCHAF</IgnoredFillType>
+			<IgnoredFillType>SHEEP_SWISS_MOUNTAIN</IgnoredFillType>
+			<IgnoredFillType>SHEEP_BLACK_WELSH</IgnoredFillType>
+			<IgnoredFillType>HORSE_GRAY</IgnoredFillType>
+			<IgnoredFillType>HORSE_PINTO</IgnoredFillType>
+			<IgnoredFillType>HORSE_PALOMINO</IgnoredFillType>
+			<IgnoredFillType>HORSE_CHESTNUT</IgnoredFillType>
+			<IgnoredFillType>HORSE_BAY</IgnoredFillType>
+			<IgnoredFillType>HORSE_BLACK</IgnoredFillType>
+			<IgnoredFillType>HORSE_SEAL_BROWN</IgnoredFillType>
+			<IgnoredFillType>HORSE_DUN</IgnoredFillType>
+			<IgnoredFillType>CHICKEN</IgnoredFillType>
+			<IgnoredFillType>CHICKEN_ROOSTER</IgnoredFillType>
+		</IgnoredFillTypes>
+	</VictoryPoints>
+
+	<Rules prefix="CM_Rules">
+		<Category name="general">
+			<Element name="maxHelpers" default="5">
+				<Values>
+					<Value name="HELPER_DEACTIVATED" text="deactivated">0</Value>
+					<Value>1</Value>
+					<Value>2</Value>
+					<Value>3</Value>
+					<Value>4</Value>
+					<Value>5</Value>
+					<Value>6</Value>
+				</Values>
+			</Element>
+			<Element name="maxMissions" default="3">
+				<Values>
+					<Value name="MISSIONS_DISABLED" text="deactivated">0</Value>
+					<Value>1</Value>
+					<Value>2</Value>
+					<Value>3</Value>
+					<Value>4</Value>
+					<Value>5</Value>
+					<Value>6</Value>
+					<Value>7</Value>
+					<Value>8</Value>
+				</Values>
+			</Element>
+			<Element name="leaseVehicle" default="3">
+				<Values>
+					<Value name="LEASE_VEHICLE_DEACTIVATED" text="deactivated">0</Value>
+					<Value name="LEASE_VEHICLE_SHOP_ONLY" text="shopOnly">1</Value>
+					<Value name="LEASE_VEHICLE_ALLOWED" text="allowed">2</Value>
+				</Values>
+			</Element>
+			<Element name="creditLimit" default="2">
+				<Values>
+					<Value name="CREDIT_DISABLED" text="deactivated">0</Value>
+					<Value>250000</Value>
+					<Value>500000</Value>
+					<Value>1000000</Value>
+					<Value>2000000</Value>
+					<Value>3000000</Value>
+					<Value>4000000</Value>
+					<Value>5000000</Value>
+					<Value>10000000</Value>
+				</Values>
+			</Element>
+			<Element name="maxFillLevel" default="1">
+				<Values>
+					<Value name="MAX_FILL_LEVEL_DISABLED" text="deactivated">0</Value>
+					<Value>50000</Value>
+					<Value>75000</Value>
+					<Value>100000</Value>
+					<Value>150000</Value>
+					<Value>200000</Value>
+					<Value>250000</Value>
+					<Value>300000</Value>
+					<Value>500000</Value>
+					<Value>1000000</Value>
+				</Values>
+			</Element>
+			<Element name="maxNumberOfAnimals" default="1">
+				<Values>
+					<Value name="MAX_FILL_LEVEL_DISABLED" text="deactivated">0</Value>
+					<Value>5</Value>
+					<Value>10</Value>
+					<Value>20</Value>
+					<Value>30</Value>
+					<Value>50</Value>
+					<Value>75</Value>
+					<Value>100</Value>
+					<Value name="ANIMAL_NO_LIMIT" text="noLimit">-1</Value>
+				</Values>
+			</Element>
+			<Element name="spyOnOtherTeams" default="1">
+				<Values>
+					<Value name="SPYING_DISABLED" text="deactivated">0</Value>
+					<Value name="PAY_TO_SPY" text="payToSpy">1</Value>
+					<Value name="SHOW_ALL" text="showAll">2</Value>
+				</Values>
+			</Element>
+			<Element name="spyingCost" default="4">
+				<Values>
+					<Value>1000</Value>
+					<Value>2000</Value>
+					<Value>5000</Value>
+					<Value>10000</Value>
+					<Value>20000</Value>
+					<Value>50000</Value>
+					<Value>100000</Value>
+				</Values>
+			</Element>
+		</Category>
+		<Category name="animalHusbandryLimits">
+			<Element genericFunc="addAnimalHusbandryLimitRules" default="1">
+				<Values>
+					<Value name="ANIMAL_DEACTIVATED" text="deactivated">0</Value>
+					<Value>1</Value>
+					<Value>2</Value>
+					<Value>3</Value>
+					<Value>4</Value>
+					<Value>5</Value>
+					<Value>6</Value>
+					<Value name="ANIMAL_NO_LIMIT" text="noLimit">5000</Value>
+				</Values>
+			</Element>
+		</Category>
+		<Category name="missions">
+			<Element genericFunc="addMissionRules" default="2">
+				<Values>
+					<Value name="MISSION_DEACTIVATED" text="deactivated">1</Value>
+					<Value name="MISSION_ACTIVATED" text="activated">2</Value>
+				</Values>
+			</Element>
+		</Category>
+	</Rules>
+</ChallengeMod>
