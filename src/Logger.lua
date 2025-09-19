@@ -1,3 +1,4 @@
+--- Copy from Courseplay
 --- A simple logger that works outside or inside the game.
 --- It always writes to the game or command line console. You can also send logs to a file.
 

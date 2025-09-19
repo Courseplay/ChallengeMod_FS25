@@ -29,6 +29,39 @@ function PointManager:calculatePoints(supressValueChange)
     end
 end
 
+function PointManager:onWriteStream(streamId, connection)
+    for _, c in ipairs(self._categoryies) do 
+        c:onWriteStream(streamId, connection)
+    end
+end
+
+function PointManager:onReadStream(streamId, connection)
+    for _, c in ipairs(self._categoryies) do 
+        c:onReadStream(streamId, connection)
+    end
+end
+
+function PointManager.registerXmlSchema(xmlSchema, baseKey)
+    baseKey = baseKey .. "PointManager"
+    xmlSchema:register(XMLValueType.STRING, baseKey .. "Point(?)#name", 
+		"Point name", nil, true)
+    xmlSchema:register(XMLValueType.FLOAT, baseKey .. "Point(?)#value", 
+		"Point value", nil, true)
+end
+
+function PointManager:onSaveToXML(xmlFile, baseKey)
+    baseKey = baseKey .. "PointManager"
+    for ix, c in ipairs(self._categoryies) do 
+        c:onSaveToXML(xmlFile, baseKey .. ".", ix)
+    end
+end
+
+function PointManager:onLoadFromXML(xmlFile, baseKey)
+    baseKey = baseKey .. "PointManager"
+    for _, c in ipairs(self._categoryies) do 
+        c:onLoadFromXML(xmlFile, baseKey .. ".")
+    end
+end
 ---------------------------------------------------
 --- Farm Overview GUI
 ---------------------------------------------------
