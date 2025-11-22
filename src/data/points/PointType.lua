@@ -19,7 +19,7 @@ end
 
 function PointType:compose()
     if self._composeFunc ~= nil then 
-        return g_pointTypeManager:raiseCallback(self._composeFunc)
+        return g_pointTypeManager:raiseCallback(self._composeFunc, self)
     end
     return {Point(self)}
 end

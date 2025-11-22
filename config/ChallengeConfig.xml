@@ -13,8 +13,8 @@
 		<Category name="storage">
 			<Type composeFunc="composeStorage"/>
 		</Category>
-		<Category name="animals">
+		<!-- <Category name="animals">
             <Type composeFunc="composeAnimals"/>
-		</Category>
+		</Category> -->
     </Points>
 </ChallengeConfig>

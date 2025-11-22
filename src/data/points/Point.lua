@@ -1,8 +1,8 @@
 ---@class Point
 Point = CpObject()
-function Point:init(type)
+function Point:init(type, name)
     self._value = 0
-    self._name = ""
+    self._name = name or ""
     self._linearModifier = 1
     ---@type PointType|nil
     self._type = type
