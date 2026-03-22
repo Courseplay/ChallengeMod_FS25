@@ -23,6 +23,13 @@ function ChallengeMenu.new(target, customMt, messageCenter, l10n, inputManager)
 	return self
 end
 
+---Open the Challenge menu
+function ChallengeMenu.openMenu()
+	if g_ChallengeMenu then
+		g_messageCenter:publish(MessageType.GUI_CHALLENGE_MOD_MENU_OPEN)
+	end
+end
+
 -- Lines 135-193
 function ChallengeMenu.createFromExistingGui(gui, guiName)
 	FarmOverviewFrame.createFromExistingGui(g_gui.frames.challengeModFarmOverview.target, "FarmOverviewFrame")

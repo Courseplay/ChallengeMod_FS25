@@ -23,7 +23,7 @@ function ChallengeSettings:loadFromSavegame(savegameDirectory)
     end
     
     local xmlSchema = XMLSchema.new("ChallengeSettings")
-    self:registerXmlSchema(xmlSchema, "")
+    ChallengeSettings.registerXmlSchema(xmlSchema, "")
     
     local xmlFile = XMLFile.loadIfExists("challengeSettings", filePath, xmlSchema)
     if xmlFile then
@@ -44,7 +44,7 @@ function ChallengeSettings:saveToSavegame(savegameDirectory)
     local filePath = savegameDirectory .. "/Challenge_Settings.xml"
     
     local xmlSchema = XMLSchema.new("ChallengeSettings")
-    self:registerXmlSchema(xmlSchema, "")
+    ChallengeSettings.registerXmlSchema(xmlSchema, "")
     
     local xmlFile = XMLFile.create("challengeSettings", filePath, "ChallengeSettings", xmlSchema)
     if xmlFile then
