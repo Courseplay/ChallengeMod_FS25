@@ -162,16 +162,31 @@ g_challengeMod = ChallengeMod()
 g_pointTypeManager = PointTypeManager()
 addModEventListener(g_challengeMod)
 
--- Console command to open the Challenge Menu
--- Make it accessible globally
-_G.cmOpenMenu = function()
-    print("[ChallengeMod] Console command 'cmOpenMenu' executed")
-    if g_gui and g_ChallengeMenu then
-        print("[ChallengeMod] Opening Challenge Menu...")
-        ChallengeMenu.openMenu()
-        return "Challenge Menu opened"
-    else
-        print("[ChallengeMod] ERROR: Cannot open menu - g_gui=" .. tostring(g_gui) .. " g_ChallengeMenu=" .. tostring(g_ChallengeMenu))
-        return "ERROR: Challenge Menu not initialized"
+-- Hook into InGameMenu to add Challenge Mode tab
+local originalInGameMenuInit = InGameMenu.new
+function InGameMenu.new(messageCenter, l10n, inputManager, ...)
+    local self = originalInGameMenuInit(messageCenter, l10n, inputManager, ...)
+    
+    -- This will be called when the InGameMenu is fully set up
+    local originalOnGuiSetupFinished = self.onGuiSetupFinished
+    function self:onGuiSetupFinished()
+        originalOnGuiSetupFinished(self)
+        
+        -- Add Challenge Mode tab to the menu
+        if self.menuButtonInfo then
+            print("[ChallengeMod] Adding Challenge Mode button to InGameMenu")
+            
+            table.insert(self.menuButtonInfo, {
+                label = g_i18n:getText("ui_challengeMode"),
+                action = function()
+                    print("[ChallengeMod] Challenge Mode button pressed")
+                    if g_ChallengeMenu then
+                        ChallengeMenu.openMenu()
+                    end
+                end
+            })
+        end
     end
+    
+    return self
 end
