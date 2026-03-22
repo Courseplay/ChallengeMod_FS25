@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
 	<texts>
+		<!-- Challenge Mod UI -->
+		<text name="ui_challengemod_overview" text="Challenge Overview"/>
+		<text name="ui_challengemod_settings" text="Settings"/>
+		<text name="ui_challengemod_pointName" text="Point"/>
+		<text name="ui_challengemod_pointValue" text="Total Value"/>
+		<text name="ui_challengemod_pointSession" text="Session"/>
+		<text name="ui_challengemod_logTime" text="Time"/>
+		<text name="ui_challengemod_logType" text="Type"/>
+		<text name="ui_challengemod_logPoints" text="Points"/>
+		<text name="ui_challengemod_logReason" text="Reason"/>
+		<text name="ui_challengemod_logAdmin" text="Admin"/>
+		<text name="ui_challengemod_multiplierName" text="Multiplier"/>
+		<text name="ui_challengemod_multiplierValue" text="Value"/>
+		<text name="ui_challengemod_multiplierPoints" text="Points"/>
+		<text name="ui_challengemod_multiplierMode" text="Mode"/>
+		<text name="ui_challengemod_settingsInfo" text="Only the admin can change the multipliers. These settings affect the point calculation for all farms."/>
+		
+		<!-- Admin & Settings -->
+		<text name="ui_challengemod_adminLogin" text="Admin Login"/>
+		<text name="ui_challengemod_adminPassword" text="Password"/>
+		<text name="ui_challengemod_adminLogin_success" text="Admin login successful"/>
+		<text name="ui_challengemod_adminLogin_failed" text="Admin login failed"/>
+		<text name="ui_challengemod_adminLogout" text="Admin Logout"/>
+		<text name="ui_challengemod_onlyAdminCanEdit" text="Only admin can edit these settings"/>
+		<text name="ui_challengemod_multiplierEditDialog" text="Edit Multiplier"/>
+		<text name="ui_challengemod_multiplierValue_prompt" text="Enter the value (e.g. 1000)"/>
+		<text name="ui_challengemod_multiplierPoints_prompt" text="Enter the points (e.g. 1)"/>
+		<text name="ui_challengemod_confirm" text="Confirm"/>
+		<text name="ui_challengemod_cancel" text="Cancel"/>
+
+		<!-- Original Challenge Mod Text -->
 		<text name="CM_title" 													text="Challenge mode" />
 		<text name="CM_title_duration"											text="Month %s of %s"/>
 		<text name="CM_leftList_leftTitle" 										text="Farm" />

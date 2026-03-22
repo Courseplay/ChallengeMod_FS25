@@ -47,14 +47,23 @@ function PointManager:calculatePoints(suppressValueChange)
 end
 
 function PointManager:onWriteStream(streamId, connection)
+    local totalPoints = self:getTotalPoints()
+    streamWriteInt32(streamId, math.floor(totalPoints))
+    
+    streamWriteUInt8(streamId, #self._categories)
     for _, c in ipairs(self._categories) do 
         c:onWriteStream(streamId, connection)
     end
 end
 
 function PointManager:onReadStream(streamId, connection)
-    for _, c in ipairs(self._categories) do 
-        c:onReadStream(streamId, connection)
+    local totalPoints = streamReadInt32(streamId)
+    
+    local categoryCount = streamReadUInt8(streamId)
+    for i = 1, categoryCount do
+        if self._categories[i] then
+            self._categories[i]:onReadStream(streamId, connection)
+        end
     end
 end
 

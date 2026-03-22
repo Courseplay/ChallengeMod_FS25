@@ -1,20 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ChallengeConfig>
+    <!-- Rule Settings -->
+    <Rules>
+        <MaxHelpers value="5" min="0" max="5" />
+        <MaxMissions value="10" min="0" max="10" />
+        <VehicleRental enabled="true" />
+        <CreditLimit value="1000000" min="0" max="1000000" />
+        <MaxStorageAmount enabled="false" value="0" />
+        <MaxAnimalAmount enabled="false" value="0" />
+    </Rules>
+    
+    <!-- Point Type Multipliers (configurable by admin) -->
+    <Multipliers>
+        <!-- Waren/Storage: X Liter = Y Punkte -->
+        <StorageLiter value="1000" points="1" roundingMode="round" />
+        <!-- Paletten: X Paletten = Y Punkte -->
+        <PaletteCount value="1" points="1" roundingMode="round" />
+        <!-- Ballen: X Ballen = Y Punkte -->
+        <BaleCount value="1" points="1" roundingMode="round" />
+        <!-- Geld: X € = 1 Punkt -->
+        <Money value="1" points="1" roundingMode="round" />
+        <!-- Kredit Strafe: X € = -1 Punkt -->
+        <Loan value="1" points="-1" roundingMode="round" />
+        <!-- Feldfläche: X ha = 1 Punkt -->
+        <FieldArea value="1" points="1" roundingMode="round" />
+        <!-- Fahrzeugwert: X € = 1 Punkt -->
+        <VehicleValue value="1" points="1" roundingMode="round" />
+        <!-- Gerätewert: X € = 1 Punkt -->
+        <ToolValue value="1" points="1" roundingMode="round" />
+        <!-- Gebäudewert: X € = 1 Punkt -->
+        <BuildingValue value="1" points="1" roundingMode="round" />
+        <!-- Tiere: X Tiere = 1 Punkt -->
+        <AnimalCount value="1" points="1" roundingMode="round" />
+        <!-- Verkaufte Fische: X Fische = 1 Punkt -->
+        <SoldFish value="1" points="1" roundingMode="round" />
+    </Multipliers>
+
     <Points>
         <Category name="general">
-			<Type name="area" calculateFunc="calculateArea"/>
-			<Type name="ownedBuildingValue" calculateFunc="calculateMoney"/>
-			<Type name="ownedVehicleValue" calculateFunc="calculateMoney"/>
+			<Type name="fieldArea" calculateFunc="calculateFieldArea"/>
+			<Type name="buildingValue" calculateFunc="calculateBuildingValue"/>
+			<Type name="vehicleValue" calculateFunc="calculateVehicleValue"/>
+			<Type name="toolValue" calculateFunc="calculateToolValue"/>
 		</Category>
         <Category name="money">
             <Type name="money" calculateFunc="calculateMoney"/>
             <Type name="loan" calculateFunc="calculateLoan"/>
         </Category>
 		<Category name="storage">
-			<Type name="storage" composeFunc="composeStorage" calculateFunc="calculateMoney"/>
+			<Type name="storageLiter" composeFunc="composeStorage" calculateFunc="calculateStorageLiter"/>
+			<Type name="paletteCount" composeFunc="composePalettes" calculateFunc="calculatePaletteCount"/>
+			<Type name="baleCount" composeFunc="composeBales" calculateFunc="calculateBaleCount"/>
 		</Category>
-		<!-- <Category name="animals">
-            <Type name="animals" composeFunc="composeAnimals" calculateFunc="calculateMoney"/>
-		</Category> -->
+		<Category name="animals">
+            <Type name="animalCount" composeFunc="composeAnimals" calculateFunc="calculateAnimalCount"/>
+		</Category>
+		<Category name="fishing">
+            <Type name="soldFish" calculateFunc="calculateSoldFish"/>
+		</Category>
     </Points>
 </ChallengeConfig>

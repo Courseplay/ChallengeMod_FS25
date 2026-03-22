@@ -1,24 +1,40 @@
 --[[
-	This frame is a page for all global settings in the in game menu.
-	All the layout, gui elements are cloned from the general settings page of the in game menu.
+	Challenge Mode Settings Frame
+	Displays and allows editing of multiplier settings
 ]]--
 
 SettingsFrame = {
-	CATEGRORIES = {
-		POINT_OVERVIEW = 1
+	CATEGORIES = {
+		POINT_MULTIPLIERS = 1
 	},
-	CATEGRORY_TEXTS = {
-		"points",
+	CATEGORY_TEXTS = {
+		"ui_challengemod_multipliers"
+	},
+	
+	-- Multiplier Options
+	MULTIPLIERS = {
+		"storageLiter",
+		"money",
+		"loan",
+		"fieldArea",
+		"vehicleValue",
+		"toolValue",
+		"buildingValue",
+		"animalCount",
+		"soldFish",
 	}
 }
-SettingsFrame.NUM_CATEGORIES = #SettingsFrame.CATEGRORY_TEXTS
+SettingsFrame.NUM_CATEGORIES = #SettingsFrame.CATEGORY_TEXTS
 
 local SettingsFrame_mt = Class(SettingsFrame, TabbedMenuFrameElement)
 
 function SettingsFrame.new(target, custom_mt)
 	local self = TabbedMenuFrameElement.new(target, custom_mt or SettingsFrame_mt)
-	self.subCategoryPages = {}
-	self.subCategoryTabs = {}
+	
+	self.settingsList = nil
+	self.settingOptions = {}
+	self.logger = Logger("SettingsFrame")
+	
 	return self
 end
 
@@ -39,15 +55,128 @@ function SettingsFrame.createFromExistingGui(gui, guiName)
 	return newGui
 end
 
-function SettingsFrame.registerXmlSchema(xmlSchema, xmlKey)
+function SettingsFrame:onGuiSetupFinished()
+	SettingsFrame:superClass().onGuiSetupFinished(self)
 	
+	self.settingOptions = {}
+	self.editDialog = nil
+	self.selectedMultiplierIndex = nil
+	
+	-- Create multiplier options
+	if g_pointTypeManager then
+		for _, multiplierName in ipairs(SettingsFrame.MULTIPLIERS) do
+			local multiplier = g_pointTypeManager:getMultiplier(multiplierName)
+			if multiplier then
+				local option = self:createMultiplierOption(multiplierName, multiplier)
+				if option then
+					table.insert(self.settingOptions, option)
+				end
+			end
+		end
+	end
+	
+	-- Add options to list or container
+	if self.settingsList then
+		self.settingsList:setDataSource(self.settingOptions)
+		self.settingsList:reloadData()
+	end
 end
 
-function SettingsFrame:loadFromXMLFile(xmlFile, baseKey)
-   
+function SettingsFrame:createMultiplierOption(multiplierName, multiplier)
+	local option = {
+		name = multiplierName,
+		value = multiplier.value,
+		points = multiplier.points,
+		mode = multiplier.mode or "round"
+	}
+	return option
 end
 
-function SettingsFrame:saveToXMLFile(xmlFile, baseKey)
+function SettingsFrame:onFrameOpen()
+	SettingsFrame:superClass().onFrameOpen(self)
+	
+	-- Check if player is admin or host
+	local isAdmin = false
+	if g_adminManager then
+		isAdmin = g_adminManager:isAdminActive()
+	end
+	
+	if g_currentMission and g_currentMission.player then
+		isAdmin = isAdmin or (g_currentMission.player.farmId == 1)
+	end
+	
+	if not isAdmin then
+		self.logger:warning("Player is not admin, hiding multiplier settings")
+		-- Disable editing if not admin
+		if self.settingsList then
+			self.settingsList:setDisabled(true)
+		end
+	end
+end
+
+function SettingsFrame:updateMultiplier(multiplierName, value, points, mode)
+	if g_pointTypeManager then
+		g_pointTypeManager:setMultiplier(multiplierName, value, points, mode)
+		self.logger:info("Updated multiplier %s: %d = %d points", multiplierName, value, points)
+		
+		-- Broadcast to other players (network sync)
+		if g_server then
+			self:updateMultiplierNetwork(multiplierName, value, points, mode)
+		end
+	end
+end
+
+function SettingsFrame:updateMultiplierNetwork(multiplierName, value, points, mode)
+	-- Send multiplier update to all clients via network
+	-- This will be used for multiplayer synchronization
+	if g_server ~= nil and g_currentMission:getFarmById(1) then
+		g_server:broadcastEvent(MultiplierUpdateEvent.new(multiplierName, value, points, mode))
+	end
+end
+
+function SettingsFrame:onClickListItem(list, section, index)
+	if not g_adminManager or not g_adminManager:isAdminActive() then
+		self.logger:warning("Only admin can edit multipliers")
+		return
+	end
+	
+	local item = self.settingOptions[index]
+	if item then
+		self:openMultiplierEditDialog(item, index)
+	end
+end
+
+function SettingsFrame:openMultiplierEditDialog(multiplierOption, index)
+	self.selectedMultiplierIndex = index
+	
+	local multiplier = g_pointTypeManager:getMultiplier(multiplierOption.name)
+	if not multiplier then
+		return
+	end
+	
+	-- Create dialog
+	self.editDialog = MultiplierEditDialog(
+		multiplierOption.name,
+		multiplier,
+		function(name, value, points, mode)
+			self:updateMultiplier(name, value, points, mode)
+		end,
+		function()
+			self.logger:debug("Edit dialog cancelled")
+		end
+	)
+	
+	self.editDialog:open()
+	
+	-- In a real implementation, this would show a dialog UI
+	-- For now, we'll just log it and call confirm with dummy values
+	-- In the actual GUI, this would be a text input dialog
+	self.logger:info("Multiplier edit dialog opened for: %s", multiplierOption.name)
+end
+
+function SettingsFrame.registerXmlSchema(xmlSchema, xmlKey)
+	-- Register schemas for settings if needed
+end
    
 end
 

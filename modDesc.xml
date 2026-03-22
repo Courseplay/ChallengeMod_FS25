@@ -147,11 +147,17 @@ V1.2.0.3
 		<sourceFile filename="src/data/points/PointTypManager.lua"/>
 		<sourceFile filename="src/data/points/PointManager.lua"/>
 
+		<sourceFile filename="src/data/ChangeLog.lua"/>
+		<sourceFile filename="src/data/VehicleTracker.lua"/>
 		<sourceFile filename="src/data/ChallengeFarm.lua"/>
 		<sourceFile filename="src/data/ChallengeFarmManager.lua"/>
 
+		<sourceFile filename="src/AdminManager.lua"/>
+		<sourceFile filename="src/ChallengeSettings.lua"/>
+
 		<sourceFile filename="src/gui/elements/BinaryOptionElement.lua"/>
 		<sourceFile filename="src/gui/elements/OptionToggleElement.lua"/>
+		<sourceFile filename="src/gui/dialogs/MultiplierEditDialog.lua"/>
 		<sourceFile filename="src/gui/pages/FarmOverviewFrame.lua"/>
 		<sourceFile filename="src/gui/pages/SettingsFrame.lua"/>
 		<sourceFile filename="src/gui/ChallengeMenu.lua"/>

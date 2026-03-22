@@ -28,6 +28,11 @@ function ChallengeMod:registerXmlSchema()
     PointTypeManager.registerConfigXmlSchema(
         self.xmlSchemaConfig, self.configXmlKey .. ".")
     self.xmlSchemaSavegame = XMLSchema.new("ChallengeModSavegame")
+    
+    -- Register savegame schema for ChangeLog and VehicleTracker
+    ChangeLog.registerXmlSchema(self.xmlSchemaSavegame, self.savegameXmlKey .. ".")
+    VehicleTracker.registerXmlSchema(self.xmlSchemaSavegame, self.savegameXmlKey .. ".")
+    AdminManager.registerXmlSchema(self.xmlSchemaSavegame, self.savegameXmlKey .. ".")
 end
 
 function ChallengeMod:loadMap(filename)
@@ -44,15 +49,28 @@ function ChallengeMod:loadMap(filename)
         logger:warning("Could not load config from %s", configPath)
     end
     
-    if g_server ~= nil and g_currentMission.missionInfo.savegameDirectory ~= nil then
-		local savegamePath = g_currentMission.missionInfo.savegameDirectory .."/"
-		local filePath = savegamePath .. "Challenge.xml"
-		self.xmlFile = XMLFile.loadIfExists("challengeXml", filePath , self.xmlSchemaSavegame)
-        if self.xmlFile then 
-            logger:debug("Loaded savegame from %s", filePath)
-            self.xmlFile:delete()
+    -- Load settings from savegame if available
+    if g_currentMission.missionInfo.savegameDirectory ~= nil then
+        local savegamePath = g_currentMission.missionInfo.savegameDirectory .. "/"
+        
+        -- Load Challenge.xml for farm data
+        if g_server ~= nil then
+            local filePath = savegamePath .. "Challenge.xml"
+            self.xmlFile = XMLFile.loadIfExists("challengeXml", filePath, self.xmlSchemaSavegame)
+            if self.xmlFile then 
+                logger:debug("Loaded savegame from %s", filePath)
+                self.xmlFile:delete()
+            end
         end
-	end
+        
+        -- Load Challenge_Settings.xml for multiplier/admin settings
+        if g_challengeSettings then
+            local settingsLoaded = g_challengeSettings:loadFromSavegame(savegamePath)
+            if settingsLoaded and g_adminManager then
+                g_adminManager:setPassword(g_challengeSettings.adminPassword)
+            end
+        end
+    end
     
     g_challengeFarmManager:onSetup()
     
@@ -71,14 +89,20 @@ end
 function ChallengeMod.saveToXMLFile(missionInfo)
 	if missionInfo.isValid then 
 		local saveGamePath = missionInfo.savegameDirectory .."/"
+		
+		-- Save Challenge.xml (farm data)
 		local xmlFile = XMLFile.create(
             "challengeXml", saveGamePath.. "Challenge.xml", 
 			g_challengeMod.savegameXmlKey, 
             g_challengeMod.xmlSchemaSavegame)
 		if xmlFile then	
-            
-			xmlFile:save()
+            xmlFile:save()
 			xmlFile:delete()
+		end
+		
+		-- Save Challenge_Settings.xml (multipliers, admin password)
+		if g_challengeSettings then
+			g_challengeSettings:saveToSavegame(saveGamePath)
 		end
 	end
 end

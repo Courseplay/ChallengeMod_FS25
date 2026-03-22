@@ -1,30 +1,40 @@
 
-
---[[
-	This frame is a page for the course manager.
-]]--
----@class FarmOverview
----@field leftList table
----@field rightList table
+#[[
+	Challenge Mode Farm Overview Frame
+	Displays point statistics, logs, and farm data similar to financial overview
+]]#
+---@class FarmOverviewFrame
 FarmOverviewFrame = {}
 
 FarmOverviewFrame = {
-	CATEGRORIES = {
-		POINT_OVERVIEW = 1,
-		SETTINGS = 2
+	CATEGORIES = {
+		POINTS = 1,
+		LOGS = 2
 	},
-	CATEGRORY_TEXTS = {
-		"points",
-		"settings"
+	CATEGORY_TEXTS = {
+		"ui_challengemod_points",
+		"ui_challengemod_logs"
+	},
+	
+	-- TabList Columns for Points
+	COLUMN_POINTS = {
+		NAME = 1,
+		VALUE = 2,
+		SESSION = 3
 	}
 }
-FarmOverviewFrame.NUM_CATEGORIES = #FarmOverviewFrame.CATEGRORY_TEXTS
+FarmOverviewFrame.NUM_CATEGORIES = #FarmOverviewFrame.CATEGORY_TEXTS
 
 local FarmOverviewFrame_mt = Class(FarmOverviewFrame, TabbedMenuFrameElement)
 
 function FarmOverviewFrame.new(target, custom_mt)
 	local self = TabbedMenuFrameElement.new(target, custom_mt or FarmOverviewFrame_mt)
-
+	
+	self.pointsList = nil
+	self.logsList = nil
+	self.playerFarm = nil
+	self.logger = Logger("FarmOverviewFrame")
+	
 	return self
 end
 
@@ -39,13 +49,125 @@ function FarmOverviewFrame.createFromExistingGui(gui, guiName)
 end
 
 function FarmOverviewFrame.setupGui()
-	local courseManagerFrame = FarmOverviewFrame.new()
+	local frame = FarmOverviewFrame.new()
 	g_gui:loadGui(Utils.getFilename("config/gui/pages/FarmOverviewFrame.xml", 
-		g_challengeMod.BASE_DIRECTORY), "FarmOverviewFrame", courseManagerFrame, true)
+		g_challengeMod.BASE_DIRECTORY), "FarmOverviewFrame", frame, true)
+end
+
+function FarmOverviewFrame:onGuiSetupFinished()
+	FarmOverviewFrame:superClass().onGuiSetupFinished(self)
+	
+	-- Setup pointsList
+	self.pointsData = {}
+	if self.pointsList ~= nil then
+		self.pointsList:setDataSource(self.pointsData)
+		self.pointsList:reloadData()
+	end
+	
+	-- Setup logsList
+	self.logsData = {}
+	if self.logsList ~= nil then
+		self.logsList:setDataSource(self.logsData)
+		self.logsList:reloadData()
+	end
+end
+
+function FarmOverviewFrame:setPlayerFarm(playerFarm)
+	self.playerFarm = playerFarm
+	self:updateLists()
+end
+
+function FarmOverviewFrame:updateLists()
+	if not self.playerFarm then
+		return
+	end
+	
+	-- Update points data
+	self.pointsData = {}
+	if self.playerFarm:getPointManager then
+		local pointManager = self.playerFarm:getPointManager()
+		for _, category in ipairs(pointManager._categories) do
+			for _, point in ipairs(category:getPoints()) do
+				local item = {
+					columns = {}
+				}
+				item.columns[self.COLUMN_POINTS.NAME] = {
+					text = point:getName(),
+					value = point:getName()
+				}
+				item.columns[self.COLUMN_POINTS.VALUE] = {
+					text = string.format("%.0f", point:getValue()),
+					value = point:getValue()
+				}
+				item.columns[self.COLUMN_POINTS.SESSION] = {
+					text = tostring(math.floor(point._value)),
+					value = point._value
+				}
+				table.insert(self.pointsData, item)
+			end
+		end
+	end
+	
+	if self.pointsList ~= nil then
+		self.pointsList:reloadData()
+	end
+	
+	-- Update logs data
+	self.logsData = {}
+	if self.playerFarm:getChangeLog then
+		local logs = self.playerFarm:getChangeLogEntries(20)
+		for _, entry in ipairs(logs) do
+			local item = {
+				columns = {}
+			}
+			item.columns[1] = {
+				text = entry:getTimeString(),
+				value = entry:getTimestamp()
+			}
+			item.columns[2] = {
+				text = entry:getPointType(),
+				value = entry:getPointType()
+			}
+			item.columns[3] = {
+				text = string.format("%+d", entry:getPointsDelta()),
+				value = entry:getPointsDelta()
+			}
+			item.columns[4] = {
+				text = entry:getReason(),
+				value = entry:getReason()
+			}
+			item.columns[5] = {
+				text = entry:getAdminName(),
+				value = entry:getAdminName()
+			}
+			table.insert(self.logsData, item)
+		end
+	end
+	
+	if self.logsList ~= nil then
+		self.logsList:reloadData()
+	end
+end
+
+function FarmOverviewFrame:onFrameOpen()
+	FarmOverviewFrame:superClass().onFrameOpen(self)
+	
+	-- Get current player's farm
+	if g_currentMission and g_currentMission.player then
+		local farm = g_farmManager:getFarmByUserId(g_currentMission.player.farmId)
+		if farm and g_challengeFarmManager then
+			local challengeFarm = g_challengeFarmManager:getFarm(farm.farmId)
+			self:setPlayerFarm(challengeFarm)
+		end
+	end
+end
+
+function FarmOverviewFrame:onClickListItem(list, section, index)
+	-- Handle list item click if needed
 end
 
 function FarmOverviewFrame.registerXmlSchema(xmlSchema, xmlKey)
-	
+	-- Register list schemas if needed
 end
 
 ---@param farmManager ChallengeFarmManager

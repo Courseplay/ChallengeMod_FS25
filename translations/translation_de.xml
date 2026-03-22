@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
 	<texts>
+		<!-- Challenge Mod UI -->
+		<text name="ui_challengemod_overview" text="Wettkampf Übersicht"/>
+		<text name="ui_challengemod_settings" text="Einstellungen"/>
+		<text name="ui_challengemod_pointName" text="Punkt"/>
+		<text name="ui_challengemod_pointValue" text="Gesamtwert"/>
+		<text name="ui_challengemod_pointSession" text="Session"/>
+		<text name="ui_challengemod_logTime" text="Zeit"/>
+		<text name="ui_challengemod_logType" text="Typ"/>
+		<text name="ui_challengemod_logPoints" text="Punkte"/>
+		<text name="ui_challengemod_logReason" text="Grund"/>
+		<text name="ui_challengemod_logAdmin" text="Admin"/>
+		<text name="ui_challengemod_multiplierName" text="Multiplikator"/>
+		<text name="ui_challengemod_multiplierValue" text="Wert"/>
+		<text name="ui_challengemod_multiplierPoints" text="Punkte"/>
+		<text name="ui_challengemod_multiplierMode" text="Modus"/>
+		<text name="ui_challengemod_settingsInfo" text="Nur der Admin kann die Multiplikatoren ändern. Diese Einstellungen beeinflussen die Punkteberechnung für alle Farmen."/>
+		
+		<!-- Admin & Settings -->
+		<text name="ui_challengemod_adminLogin" text="Admin Login"/>
+		<text name="ui_challengemod_adminPassword" text="Passwort"/>
+		<text name="ui_challengemod_adminLogin_success" text="Admin erfolgreich angemeldet"/>
+		<text name="ui_challengemod_adminLogin_failed" text="Admin Login fehlgeschlagen"/>
+		<text name="ui_challengemod_adminLogout" text="Admin Logout"/>
+		<text name="ui_challengemod_onlyAdminCanEdit" text="Nur Admin kann diese Einstellungen ändern"/>
+		<text name="ui_challengemod_multiplierEditDialog" text="Multiplikator bearbeiten"/>
+		<text name="ui_challengemod_multiplierValue_prompt" text="Gib den Wert ein (z.B. 1000)"/>
+		<text name="ui_challengemod_multiplierPoints_prompt" text="Gib die Punkte ein (z.B. 1)"/>
+		<text name="ui_challengemod_confirm" text="Bestätigen"/>
+		<text name="ui_challengemod_cancel" text="Abbrechen"/>
+
+		<!-- Original Challenge Mod Text -->
 		<text name="CM_title" 													text="Wettkampfmodus" />
 		<text name="CM_title_duration"											text="Monat %s von %s"/>
 		<text name="CM_leftList_leftTitle" 										text="Farm" />

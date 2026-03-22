@@ -1,53 +1,61 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <GUI name="challengeModFarmOverview">
     <GuiElement profile="fs25_menuContainer">
+        <!-- Header -->
         <GuiElement profile="fs25_menuHeaderPanel">
             <Bitmap profile="fs25_menuHeaderIconBg">
-                <Bitmap profile="fs25_menuHeaderIcon" id="categoryHeaderIcon" />
+                <Bitmap profile="fs25_menuHeaderIcon" id="categoryHeaderIcon"/>
             </Bitmap>
-            <Text profile="fs25_menuHeaderTitle" id="categoryHeaderText" />
+            <Text profile="fs25_menuHeaderTitle" id="categoryHeaderText" text="ui_challengemod_overview"/>
         </GuiElement>
-        <!-- <BoxLayout profile="fs25_subCategorySelectorTabbedBox" id="subCategoryBox"> -->
-            <!-- <Button profile="fs25_subCategorySelectorTabbedTab" id="subCategoryTabs[1]"
-                text="TODO">
-                <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background" />
-            </Button>
-            <Button profile="fs25_subCategorySelectorTabbedTab" id="subCategoryTabs[2]"
-                text="TODO">
-                <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background" />
-            </Button> -->
-        <!-- </BoxLayout> -->
-        <ThreePartBitmap profile="fs25_lineSeparatorTopHighlighted" position="0px -57px" />
+
+        <ThreePartBitmap profile="fs25_lineSeparatorTopHighlighted" position="0px -57px"/>
+        
+        <!-- Tab Selector -->
         <MultiTextOption profile="fs25_subCategorySelectorTabbed" id="subCategoryPaging"
-            position="0px -10px" />
+            position="0px -10px"/>
+
+        <!-- Points Overview Tab -->
         <GuiElement profile="fs25_subCategorySelectorTabbedContainer" id="subCategoryPages[1]">
             <GuiElement profile="fs25_statisticsHeaderBox">
-                <Text profile="fs25_statisticsHeaderText" id="leftColumnHeader"/>
-                <Text profile="fs25_statisticsHeaderText"
-                    position="116px 0px" textAlignment="right" visible="false"/>
-                <Text profile="fs25_statisticsHeaderText"
-                    position="456px 0px" visible="false"/>
-                <Text profile="fs25_statisticsHeaderText"
-                    position="877px 0px" visible="false"/>
-                <Bitmap profile="fs25_statisticsHeaderIcon" position="1144px 0px" visible="false"/>
-                <Text profile="fs25_statisticsHeaderText" position="1134px 0px" visible="false"/>
-                <Bitmap profile="fs25_statisticsHeaderIcon" position="1390px 0px"
-                    imageSliceId="gui.prices_selling" visible="false"/>
-                <Text profile="fs25_statisticsHeaderText" 
-                    position="1376px 0px" id="rightColumnHeader" visible="false"/>
-                <ThreePartBitmap profile="fs25_lineSeparatorBottom" position="0px -2dp" />
+                <Text profile="fs25_statisticsHeaderText" text="ui_challengemod_pointName"/>
+                <Text profile="fs25_statisticsHeaderText" position="456px 0px" text="ui_challengemod_pointValue"/>
+                <Text profile="fs25_statisticsHeaderText" position="877px 0px" text="ui_challengemod_pointSession"/>
+                <ThreePartBitmap profile="fs25_lineSeparatorBottom" position="0px -2dp"/>
             </GuiElement>
-            <GuiElement id="leftColumn">
-                <!-- <BoxLayout profile="fs25_statisticsHeaderBox" id="tableHeaderBox" size="680px 104px">
-                    <Text profile="fs25_statisticsHeaderText" size="340px 104px" id="leftColumnHeader"  />
-                </BoxLayout> -->
+            
+            <SmoothList profile="cpLeftList" id="pointsList" focusChangeTop="nil" focusChangeBottom="nil">
+                <ListItem profile="fs25_pricesProductListItem">
+                    <Text name="title" profile="fs25_pricesProductListItemName"/>
+                    <Text name="column2" profile="fs25_pricesProductListItemName" position="456px 0px"/>
+                    <Text name="column3" profile="fs25_pricesProductListItemName" position="877px 0px"/>
+                </ListItem>
+            </SmoothList>
+        </GuiElement>
 
-                <SmoothList profile="cpLeftList" id="leftList" focusChangeTop="nil" focusChangeBottom="nil" selectedWithoutFocus="true">
-                    <ListItem profile="fs25_pricesProductListItem">
-                        <Bitmap name="icon" profile="fs25_pricesProductListItemIcon" />
-                        <Text name="title" profile="fs25_pricesProductListItemName" />
-                    </ListItem>
-                </SmoothList>
+        <!-- Logs Tab -->
+        <GuiElement profile="fs25_subCategorySelectorTabbedContainer" id="subCategoryPages[2]" visible="false">
+            <GuiElement profile="fs25_statisticsHeaderBox">
+                <Text profile="fs25_statisticsHeaderText" text="ui_challengemod_logTime"/>
+                <Text profile="fs25_statisticsHeaderText" position="340px 0px" text="ui_challengemod_logType"/>
+                <Text profile="fs25_statisticsHeaderText" position="680px 0px" text="ui_challengemod_logPoints"/>
+                <Text profile="fs25_statisticsHeaderText" position="1020px 0px" text="ui_challengemod_logReason"/>
+                <Text profile="fs25_statisticsHeaderText" position="1356px 0px" text="ui_challengemod_logAdmin"/>
+                <ThreePartBitmap profile="fs25_lineSeparatorBottom" position="0px -2dp"/>
+            </GuiElement>
+            
+            <SmoothList profile="cpLeftList" id="logsList" focusChangeTop="nil" focusChangeBottom="nil">
+                <ListItem profile="fs25_pricesProductListItem">
+                    <Text name="title" profile="fs25_pricesProductListItemName"/>
+                    <Text name="column2" profile="fs25_pricesProductListItemName" position="340px 0px"/>
+                    <Text name="column3" profile="fs25_pricesProductListItemName" position="680px 0px"/>
+                    <Text name="column4" profile="fs25_pricesProductListItemName" position="1020px 0px"/>
+                    <Text name="column5" profile="fs25_pricesProductListItemName" position="1356px 0px"/>
+                </ListItem>
+            </SmoothList>
+        </GuiElement>
+    </GuiElement>
+</GUI>
 
                 <ThreePartBitmap profile="cpLeftListSliderBox">
                     <Slider profile="fs25_listSlider" dataElementId="leftList" id="leftListSlider" />

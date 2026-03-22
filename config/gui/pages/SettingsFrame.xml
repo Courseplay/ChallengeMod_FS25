@@ -1,58 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <GUI name="challengeModSettings">
     <GuiElement profile="fs25_menuContainer">
+        <!-- Header -->
         <GuiElement profile="fs25_menuHeaderPanel">
             <Bitmap profile="fs25_menuHeaderIconBg">
-                <Bitmap profile="fs25_menuHeaderIcon" id="categoryHeaderIcon" />
+                <Bitmap profile="fs25_menuHeaderIcon" id="categoryHeaderIcon"/>
             </Bitmap>
-            <Text profile="fs25_menuHeaderTitle" id="categoryHeaderText" />
-        </GuiElement>
-        <BoxLayout profile="fs25_subCategorySelectorTabbedBox" id="subCategoryBox">
-
-        </BoxLayout>
-        <ThreePartBitmap profile="fs25_lineSeparatorTopHighlighted" position="0px -57px" />
-        <MultiTextOption profile="fs25_subCategorySelectorTabbed" id="subCategoryPaging"
-            position="0px -10px" onClick="updateSubCategoryPages" />
-   
-        <!-- Prefabs -->
-
-        <Button profile="fs25_subCategorySelectorTabbedTab" id="selectorPrefab">
-            <ThreePartBitmap profile="fs25_subCategorySelectorTabbedTabBg" name="background" />
-        </Button>
-
-        <GuiElement profile="fs25_subCategorySelectorTabbedContainer" id="containerPrefab">
-            <Text profile="fs25_settingsNoPermissionText" name="noPermissionText"
-                text="$l10n_ui_settingsNoPermission" visible="false"/>
-            <ScrollingLayout profile="fs25_settingsLayout" name="layout" bottomClipperElementName="bottomClipper">
-
-            </ScrollingLayout>
-            <Bitmap profile="fs25_settingsTooltipSeparator" name="separator" />
-            <Bitmap profile="fs25_stopClipper" name="bottomClipper" />
+            <Text profile="fs25_menuHeaderTitle" id="categoryHeaderText" text="ui_challengemod_settings"/>
         </GuiElement>
 
-        <Bitmap profile="fs25_multiTextOptionContainer" id="booleanPrefab" focusFallthrough = "true">
-            <CustomBinaryyOption profile="fs25_settingsBinaryOption" name="setting" namedComponents="true" onClick="onClickCpMultiTextOption">
-                <Text profile="fs25_multiTextOptionTooltip" name="tooltip"/>
-                <Text profile="cpSettingsMultiOptionTitle" name="label"/>
-            </CustomBinaryyOption>
-        </Bitmap>
-        <Text profile="fs25_settingsSectionHeader" name="sectionHeader" id="sectionHeaderPrefab"/>
-        <Bitmap profile="fs25_multiTextOptionContainer" id="multiTextPrefab" focusFallthrough = "true">
-            <CustomOptionToggle profile="fs25_settingsMultiTextOption" name="setting" namedComponents="true" onClick="onClickCpMultiTextOption" hideButtonOnLimitReached="False">
-                <Text profile="fs25_multiTextOptionTooltip" name="tooltip"/>
-                <Text profile="cpSettingsMultiOptionTitle" name="label"/>
-            </CustomOptionToggle>
-        </Bitmap>
+        <ThreePartBitmap profile="fs25_lineSeparatorTopHighlighted" position="0px -57px"/>
+        
+        <!-- Info Text -->
+        <Text profile="fs25_settingsSectionHeader" position="0px -100px" size="1400px 60px"
+            text="ui_challengemod_settingsInfo"/>
 
+        <!-- Multiplier List -->
+        <GuiElement profile="fs25_statisticsHeaderBox" position="0px -200px">
+            <Text profile="fs25_statisticsHeaderText" text="ui_challengemod_multiplierName"/>
+            <Text profile="fs25_statisticsHeaderText" position="340px 0px" text="ui_challengemod_multiplierValue"/>
+            <Text profile="fs25_statisticsHeaderText" position="680px 0px" text="ui_challengemod_multiplierPoints"/>
+            <Text profile="fs25_statisticsHeaderText" position="1020px 0px" text="ui_challengemod_multiplierMode"/>
+            <ThreePartBitmap profile="fs25_lineSeparatorBottom" position="0px -2dp"/>
+        </GuiElement>
+        
+        <SmoothList profile="cpLeftList" id="settingsList" position="0px -280px" focusChangeTop="nil" focusChangeBottom="nil">
+            <ListItem profile="fs25_pricesProductListItem">
+                <Text name="title" profile="fs25_pricesProductListItemName"/>
+                <Text name="column2" profile="fs25_pricesProductListItemName" position="340px 0px"/>
+                <Text name="column3" profile="fs25_pricesProductListItemName" position="680px 0px"/>
+                <Text name="column4" profile="fs25_pricesProductListItemName" position="1020px 0px"/>
+            </ListItem>
+        </SmoothList>
     </GuiElement>
-    <ThreePartBitmap profile="fs25_sliderDockedBg" id="settingsSliderBox">
-        <ThreePartBitmap profile="fs25_sliderDockedBox">
-            <Slider profile="fs25_sliderDocked" id="settingsSlider" />
-        </ThreePartBitmap>
-    </ThreePartBitmap>
-    <GUIProfiles>
-        <Profile name="cpSettingsMultiOptionTitle" extends="fs25_settingsMultiTextOptionTitle">
-            <position value="-500px 0px" />
-        </Profile>
-    </GUIProfiles>
 </GUI>
