@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="98">
-    <version>1.2.0.3</version>
+	<version>2.0.0.0</version>
 	<author>Courseplay.devTeam, tn4799</author>
 	<title>
 		<en>Challenge Mode</en>
@@ -13,6 +13,8 @@ Challenge Time!
 This mod provides everything you need to create your own challenge.
 Custom Ingame UI with extra password to configure the rule set and values to your needs.
 The password can only be changed by the server admin.
+
+Farming Simulator 25 Version - Rebuilt from FS22
 
 The following Values can be set to get a point:
 - How much Money (without credits).
@@ -139,8 +141,7 @@ V1.2.0.3
 		<sourceFile filename="src/CpObject.lua"/>
 		<sourceFile filename="src/Logger.lua"/>
 		<sourceFile filename="src/ChUtil.lua"/>
-		<sourceFile filename="src/ChallengeMod.lua"/>
-
+		
 		<sourceFile filename="src/data/points/PointType.lua"/>
 		<sourceFile filename="src/data/points/Point.lua"/>
 		<sourceFile filename="src/data/points/PointTypManager.lua"/>
@@ -154,6 +155,9 @@ V1.2.0.3
 		<sourceFile filename="src/gui/pages/FarmOverviewFrame.lua"/>
 		<sourceFile filename="src/gui/pages/SettingsFrame.lua"/>
 		<sourceFile filename="src/gui/ChallengeMenu.lua"/>
+		
+		<sourceFile filename="src/EntryPoint.lua"/>
+		<sourceFile filename="src/ChallengeMod.lua"/>
 	</extraSourceFiles>
 
 	<l10n filenamePrefix="translations/translation" />

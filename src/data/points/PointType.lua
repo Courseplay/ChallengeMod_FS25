@@ -12,13 +12,15 @@ function PointType:getName()
     return self._name
 end
 
-function PointType:calculate(index)
-    assert(self._calculateFunc ~= nil)
-    return g_pointTypeManager:raiseCallback(index)
+function PointType:calculate()
+    if self._calculateFunc ~= nil and g_pointTypeManager then 
+        return g_pointTypeManager:raiseCallback(self._calculateFunc, self)
+    end
+    return 0
 end
 
 function PointType:compose()
-    if self._composeFunc ~= nil then 
+    if self._composeFunc ~= nil and g_pointTypeManager then 
         return g_pointTypeManager:raiseCallback(self._composeFunc, self)
     end
     return {Point(self)}
@@ -68,6 +70,39 @@ function PointCategory:loadFromXMLFile(xmlFile, baseKey)
         type:loadFromXMLFile(xmlFile, key)
         for _, point in ipairs(type:compose()) do 
             table.insert(self._points, point)
+        end
+    end)
+end
+
+function PointCategory:onWriteStream(streamId, connection)
+    for _, point in ipairs(self._points) do
+        point:onWriteStream(streamId, connection)
+    end
+end
+
+function PointCategory:onReadStream(streamId, connection)
+    for _, point in ipairs(self._points) do
+        point:onReadStream(streamId, connection)
+    end
+end
+
+function PointCategory:onSaveToXML(xmlFile, baseKey, index)
+    local key = baseKey .. "PointCategory"
+    if index then
+        key = key .. "(?)"
+    end
+    xmlFile:setValue(key .. "#name", self._name)
+    for ix, point in ipairs(self._points) do
+        point:onSaveToXML(xmlFile, key .. ".Point(" .. ix .. ")")
+    end
+end
+
+function PointCategory:onLoadFromXML(xmlFile, baseKey)
+    self._name = xmlFile:getValue(baseKey .. "#name", "")
+    xmlFile:iterate(baseKey .. ".Point", function(_, key)
+        if #self._points > 0 then
+            local point = self._points[#self._points]
+            point:onLoadFromXML(xmlFile, key)
         end
     end)
 end

@@ -2,19 +2,19 @@
 <ChallengeConfig>
     <Points>
         <Category name="general">
-			<Type name="area"/>
-			<Type name="ownedBuildingValue"/>
-			<Type name="ownedVehicleValue"/>
+			<Type name="area" calculateFunc="calculateArea"/>
+			<Type name="ownedBuildingValue" calculateFunc="calculateMoney"/>
+			<Type name="ownedVehicleValue" calculateFunc="calculateMoney"/>
 		</Category>
         <Category name="money">
-            <Type name="money"/>
-            <Type name="loan"/>
+            <Type name="money" calculateFunc="calculateMoney"/>
+            <Type name="loan" calculateFunc="calculateLoan"/>
         </Category>
 		<Category name="storage">
-			<Type composeFunc="composeStorage"/>
+			<Type name="storage" composeFunc="composeStorage" calculateFunc="calculateMoney"/>
 		</Category>
 		<!-- <Category name="animals">
-            <Type composeFunc="composeAnimals"/>
+            <Type name="animals" composeFunc="composeAnimals" calculateFunc="calculateMoney"/>
 		</Category> -->
     </Points>
 </ChallengeConfig>

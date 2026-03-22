@@ -11,7 +11,9 @@ function ChallengeFarm:init(farmId)
     self._farmId = farmId
     ---@type PointManager
     self._pointManager = PointManager()
-    self._type = ChallengeFarmType.DISABLED
+    self._type = ChallengeFarmType.NORMAL
+    ---@type Logger
+    self.logger = Logger("ChallengeFarm[" .. farmId .. "]")
 end
 
 function ChallengeFarm:delete()
@@ -28,7 +30,12 @@ function ChallengeFarm:getFarmId()
 end
 
 function ChallengeFarm:populateCell(cell)
-    cell:getAttribute("title"):setText(tostring(self._farmId)) 
+    if cell and cell:getAttribute then
+        local titleAttr = cell:getAttribute("title")
+        if titleAttr then
+            titleAttr:setText(tostring(self._farmId))
+        end
+    end
 end
 
 ---@return boolean
@@ -36,7 +43,19 @@ function ChallengeFarm:getIsActiveFarm()
     return self._type == ChallengeFarmType.NORMAL
 end
 
+function ChallengeFarm:setType(type)
+    self._type = type
+end
+
+function ChallengeFarm:getType()
+    return self._type
+end
+
 ---@return PointManager
 function ChallengeFarm:getPointManager()
     return self._pointManager
+end
+
+function ChallengeFarm:getTotalPoints()
+    return self._pointManager:getTotalPoints()
 end

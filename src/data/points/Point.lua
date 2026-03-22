@@ -8,6 +8,7 @@ function Point:init(type, name)
     self._type = type
     self._typeIndex = 0
     self._isDirty = false
+    self._lastValue = 0
 end
 
 function Point:getName()
@@ -22,16 +23,18 @@ function Point:getModifier()
     return self._linearModifier
 end
 
-function Point:calculate(supressValueChange)
-    assert(self._type)
+function Point:calculate(suppressValueChange)
+    if self._type == nil then
+        return
+    end
     self._lastValue = self._value
     local value = self._type:calculate()
     if value ~= self._value and 
-        not supressValueChange then 
-
+        not suppressValueChange then 
+        self._isDirty = true
         -- g_messageCenter:publish()
     end
-    self._value = value
+    self._value = value or 0
     self._isDirty = self._isDirty and self._value ~= self._lastValue
 end
 

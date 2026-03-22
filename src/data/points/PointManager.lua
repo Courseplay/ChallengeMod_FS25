@@ -4,6 +4,23 @@ PointManager = CpObject()
 function PointManager:init()
     ---@type PointCategory[]
     self._categories = {}
+    self:setupCategories()
+end
+
+function PointManager:setupCategories()
+    -- Clone categories from the global PointTypeManager
+    if g_pointTypeManager and g_pointTypeManager._categories then
+        for _, category in ipairs(g_pointTypeManager._categories) do
+            local newCategory = PointCategory()
+            newCategory._name = category._name
+            for _, point in ipairs(category._points) do
+                local newPoint = Point(point._type, point._name)
+                newPoint._linearModifier = point._linearModifier
+                table.insert(newCategory._points, newPoint)
+            end
+            table.insert(self._categories, newCategory)
+        end
+    end
 end
 
 function PointManager:delete()
@@ -21,10 +38,10 @@ function PointManager:getTotalPoints()
     return value
 end
 
-function PointManager:calculatePoints(supressValueChange)
+function PointManager:calculatePoints(suppressValueChange)
     for _, category in ipairs(self._categories) do
         for _, p in ipairs(category:getPoints()) do
-            p:calculate(supressValueChange)
+            p:calculate(suppressValueChange)
         end
     end
 end

@@ -10,9 +10,13 @@ ChallengeMod.savegameXmlKey = "ChallengeMod"
 -- g_modManager.ChallengeMod_MOD_NAME = g_currentModNam
 
 function ChallengeMod:init()
-    self.isServer = g_server
+    self.isServer = g_server ~= nil
+    self.isClient = g_client ~= nil
     self.isAdminModeActive = false
-
+    self.xmlFile = nil
+    self.xmlSchemaConfig = nil
+    self.xmlSchemaSavegame = nil
+    
     -- g_messageCenter:subscribe(MessageType.FARM_CREATED, self.newFarmCreated, self)
     -- g_messageCenter:subscribe(MessageType.HOUR_CHANGED, self.onHourChanged, self)
     -- g_messageCenter:subscribe(MessageType.SAVEGAME_LOADED, self.onSavegameLoaded, self)
@@ -28,24 +32,36 @@ end
 
 function ChallengeMod:loadMap(filename)
     self:registerXmlSchema()
-    local xmlFile = XMLFile.loadIfExists("cpXmlFile", 
-        Utils.getFilename('config/ChallengeConfig.xml', 
-            ChallengeMod.BASE_DIRECTORY), self.xmlSchemaConfig)
+    local logger = Logger("ChallengeMod.loadMap")
+    
+    local configPath = Utils.getFilename('config/ChallengeConfig.xml', ChallengeMod.BASE_DIRECTORY)
+    local xmlFile = XMLFile.loadIfExists("cpXmlFile", configPath, self.xmlSchemaConfig)
 	if xmlFile then
         g_pointTypeManager:loadFromXMLFile(xmlFile, self.configXmlKey .. ".")
         xmlFile:delete()
+        logger:debug("Loaded config from %s", configPath)
+    else
+        logger:warning("Could not load config from %s", configPath)
     end
+    
     if g_server ~= nil and g_currentMission.missionInfo.savegameDirectory ~= nil then
 		local savegamePath = g_currentMission.missionInfo.savegameDirectory .."/"
 		local filePath = savegamePath .. "Challenge.xml"
 		self.xmlFile = XMLFile.loadIfExists("challengeXml", filePath , self.xmlSchemaSavegame)
         if self.xmlFile then 
-
+            logger:debug("Loaded savegame from %s", filePath)
             self.xmlFile:delete()
         end
 	end
+    
     g_challengeFarmManager:onSetup()
-    ChallengeMenu.setupGui()
+    
+    if g_gui then
+        ChallengeMenu.setupGui()
+        logger:debug("Challenge menu GUI setup complete")
+    else
+        logger:warning("g_gui not available, GUI setup deferred")
+    end
 end
 
 function ChallengeMod:deleteMap()
@@ -91,9 +107,27 @@ end
 ---@param modifier number
 ---@param isDown boolean
 function ChallengeMod:keyEvent(unicode, sym, modifier, isDown)
+    if isDown then
+        if g_inputBinding:hasEvent("CHALLENGE_OPEN_INGAME_MENU") then
+            if g_gui and g_ChallengeMenu then
+                ChallengeMenu.openMenu()
+            end
+        end
+    end
+end
 
+---@param actionName string
+---@param keyStatus number
+function ChallengeMod:onInputEvent(actionName, keyStatus)
+    if actionName == "CHALLENGE_OPEN_INGAME_MENU" and keyStatus == InputAction.STATE_PRESSED then
+        if g_gui and g_ChallengeMenu then
+            ChallengeMenu.openMenu()
+        end
+    end
 end
 
 ---@type ChallengeMod
 g_challengeMod = ChallengeMod()
+---@type PointTypeManager
+g_pointTypeManager = PointTypeManager()
 addModEventListener(g_challengeMod)
