@@ -163,8 +163,8 @@ g_pointTypeManager = PointTypeManager()
 addModEventListener(g_challengeMod)
 
 -- Console command to open the Challenge Menu
-addConsoleCommand("cmOpenMenu", "Opens the Challenge Mode menu", "openChallengeMenu", nil)
-function openChallengeMenu(unused)
+-- Make it accessible globally
+_G.cmOpenMenu = function()
     print("[ChallengeMod] Console command 'cmOpenMenu' executed")
     if g_gui and g_ChallengeMenu then
         print("[ChallengeMod] Opening Challenge Menu...")
