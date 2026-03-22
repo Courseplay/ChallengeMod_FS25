@@ -75,10 +75,13 @@ function ChallengeMod:loadMap(filename)
     g_challengeFarmManager:onSetup()
     
     if g_gui then
+        print("[ChallengeMod] Calling ChallengeMenu.setupGui()")
         ChallengeMenu.setupGui()
         logger:debug("Challenge menu GUI setup complete")
+        print("[ChallengeMod] g_ChallengeMenu=" .. tostring(g_ChallengeMenu))
     else
         logger:warning("g_gui not available, GUI setup deferred")
+        print("[ChallengeMod] ERROR: g_gui not available")
     end
 end
 
@@ -133,8 +136,11 @@ end
 function ChallengeMod:keyEvent(unicode, sym, modifier, isDown)
     if isDown then
         if g_inputBinding:hasEvent("CHALLENGE_OPEN_INGAME_MENU") then
+            print("[ChallengeMod] CHALLENGE_OPEN_INGAME_MENU triggered (keyEvent)")
             if g_gui and g_ChallengeMenu then
                 ChallengeMenu.openMenu()
+            else
+                print("[ChallengeMod] ERROR: g_gui=" .. tostring(g_gui) .. " g_ChallengeMenu=" .. tostring(g_ChallengeMenu))
             end
         end
     end
@@ -155,3 +161,17 @@ g_challengeMod = ChallengeMod()
 ---@type PointTypeManager
 g_pointTypeManager = PointTypeManager()
 addModEventListener(g_challengeMod)
+
+-- Console command to open the Challenge Menu
+addConsoleCommand("cmOpenMenu", "Opens the Challenge Mode menu", "openChallengeMenu", nil)
+function openChallengeMenu(unused)
+    print("[ChallengeMod] Console command 'cmOpenMenu' executed")
+    if g_gui and g_ChallengeMenu then
+        print("[ChallengeMod] Opening Challenge Menu...")
+        ChallengeMenu.openMenu()
+        return "Challenge Menu opened"
+    else
+        print("[ChallengeMod] ERROR: Cannot open menu - g_gui=" .. tostring(g_gui) .. " g_ChallengeMenu=" .. tostring(g_ChallengeMenu))
+        return "ERROR: Challenge Menu not initialized"
+    end
+end

@@ -25,8 +25,12 @@ end
 
 ---Open the Challenge menu
 function ChallengeMenu.openMenu()
+	print("[ChallengeMenu.openMenu] Called")
 	if g_ChallengeMenu then
+		print("[ChallengeMenu.openMenu] Publishing GUI_CHALLENGE_MOD_MENU_OPEN message")
 		g_messageCenter:publish(MessageType.GUI_CHALLENGE_MOD_MENU_OPEN)
+	else
+		print("[ChallengeMenu.openMenu] ERROR: g_ChallengeMenu is nil")
 	end
 end
 
